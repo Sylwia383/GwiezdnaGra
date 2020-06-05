@@ -1,47 +1,57 @@
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
+#include "klasy.h"
 
 int main() {
-    // create the window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Super gra");
+    sf::Clock zegar;
 
-    // create some shapes
-    sf::CircleShape circle(100.0);
-    circle.setPosition(100.0, 300.0);
-    circle.setFillColor(sf::Color(100, 250, 50));
+    sf::Texture guyy;
+    if(!guyy.loadFromFile("character_femaleAdventurer_sheet.png")) { return 1; }
+    Postac guy(guyy,sf::Vector2f(180,110));
+    guy.add_bits_of_texture(sf::IntRect(16,32,64,97));
+    guy.add_bits_of_texture(sf::IntRect(300,542,65,97));
+    guy.add_bits_of_texture(sf::IntRect(390,542,77,97));
+    guy.add_bits_of_texture(sf::IntRect(491,542,67,97));
+    guy.add_bits_of_texture(sf::IntRect(590,542,64,97));
 
-    sf::RectangleShape rectangle(sf::Vector2f(120.0, 60.0));
-    rectangle.setPosition(500.0, 400.0);
-    rectangle.setFillColor(sf::Color(100, 50, 250));
 
-    sf::ConvexShape triangle;
-    triangle.setPointCount(3);
-    triangle.setPoint(0, sf::Vector2f(0.0, 0.0));
-    triangle.setPoint(1, sf::Vector2f(0.0, 100.0));
-    triangle.setPoint(2, sf::Vector2f(140.0, 40.0));
-    triangle.setOutlineColor(sf::Color::Red);
-    triangle.setOutlineThickness(5);
-    triangle.setPosition(600.0, 100.0);
+    std::vector<sf::Texture> jedzenie(20); //wektor tekstur dobrego jedzenia
+    if(!jedzenie[0].loadFromFile("cherry.png")) { return 1; }
 
-    // run the program as long as the window is open
+
+    sf::Vector2f pozycja(300,0);
+    Good_Food pll(jedzenie[0],pozycja);
+    Good_Food plll(jedzenie[0],pozycja);
+    Good_Food pllll(jedzenie[0],pozycja);
+    std::vector<Good_Food> v_jedzonko;
+    v_jedzonko.emplace_back(pll);
+    v_jedzonko.emplace_back(Good_Food(jedzenie[0],sf::Vector2f(400,0)));
+    v_jedzonko.emplace_back(Good_Food(jedzenie[0],sf::Vector2f(200,0)));
+
+
+
+
     while (window.isOpen()) {
-        // check all the window's events that were triggered since the last iteration of the loop
         sf::Event event;
         while (window.pollEvent(event)) {
-            // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-
-        // clear the window with black color
+        sf::Time elapsed = zegar.restart();
+        guy.texture_walk(elapsed);
+        guy.walk(elapsed);
+        for(auto &it : v_jedzonko){
+            it.drop(elapsed);
+        }
+        guy.disappear(v_jedzonko);
         window.clear(sf::Color::Black);
 
-        // draw everything here...
-        window.draw(circle);
-        window.draw(rectangle);
-        window.draw(triangle);
 
-        // end the current frame
+        window.draw(guy);
+        //window.draw(v_jedzonko[0]);
+        for(auto &it : v_jedzonko){
+            window.draw(it);
+        }
+
         window.display();
     }
 

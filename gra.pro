@@ -10,4 +10,8 @@ CONFIG(debug, debug|release){
     LIBS += -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-system -lsfml-window
 }
 SOURCES += \
+        klasy.cpp \
         main.cpp
+
+HEADERS += \
+    klasy.h

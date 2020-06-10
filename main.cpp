@@ -31,15 +31,12 @@ int main() {
     if(!tekstury_jedenia[13].loadFromFile("cherry.png")) { return 1; }
     if(!tekstury_jedenia[14].loadFromFile("cherry.png")) { return 1; }
 
-    // jak mamy wektor tekstur to teraz trzeba zrobić vektor
-    // stu spadających obiektóe z randomową teksturą i pozycją
-    // a potem jeszcze kiedy maja spadać
 
 
     sf::Vector2f pozycja(300,0);
-    std::vector<Good_Food> v_jedzonko;
+    std::vector<std::unique_ptr<Food>> v_jedzonko;
     for(int i=0; i<100; i++){
-        v_jedzonko.emplace_back(tekstury_jedenia[rand()%15],sf::Vector2f(std::rand() % (window.getSize().x -200),0));
+        v_jedzonko.emplace_back(std::make_unique<Good_Food>(tekstury_jedenia[rand()%15],sf::Vector2f(std::rand() % (window.getSize().x -200),-120)));
     }
 
 
@@ -57,20 +54,19 @@ int main() {
 
         guy.texture_walk(elapsed);
         guy.walk(elapsed);
-        guy.disappear(v_jedzonko);
+        guy.disappear(v_jedzonko,window);
         guy.start_drop(elapsed,v_jedzonko); // kiedy postać coś osiągnie to zaczynają spadać (najlepiej żeby to było cos nieodwracalnego) może boola jakiegoś zrobić
+
         /*for(auto &it : v_jedzonko){
-            it.drop(elapsed);
+            it->drop(elapsed,guy);
         }*/
-
-
 
         window.clear(sf::Color::Black);
 
 
         window.draw(guy);
         for(auto &it : v_jedzonko){
-            window.draw(it);
+            window.draw(*it);
         }
 
         window.display();

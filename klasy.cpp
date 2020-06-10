@@ -1,8 +1,6 @@
 #include "klasy.h"
 
-Postac::Postac(sf::Texture &texture, sf::Vector2f position) : sf::Sprite(texture){
-    setPosition(position);
-}
+// METODY POSTACI
 
 void Postac::add_bits_of_texture(sf::IntRect xxx){
     bits_of_texture.emplace_back(xxx);
@@ -38,7 +36,6 @@ void Postac::texture_walk(const sf::Time &e)
     }
 }
 
-
 void Postac::walk(const sf::Time &e){
     auto guy_bounds = getGlobalBounds();
     if(guy_bounds.top+guy_bounds.height>600) v_y=0;
@@ -56,15 +53,51 @@ void Postac::walk(const sf::Time &e){
     move(v_x*e.asSeconds(), v_y*e.asSeconds());
 }
 
-
-Food::Food(const sf::Texture &texture, const sf::Vector2f position) : sf::Sprite(texture){
-    setPosition(position);
+void Postac::disappear(std::vector<std::unique_ptr<Food>> &jo, sf::RenderWindow &window){
+    for(int i=0; i<jo.size(); i++){
+        auto FOOD_b =jo[i]->getGlobalBounds();
+        if(getGlobalBounds().intersects(FOOD_b)){//jeżeni kolizja z postacią
+            if(jo[i]->typ()=="good_food"){//jeżeli złapie dobre jedzenie
+                zlapane++;
+                std::cout<<"ZLAPANE: "<<zlapane<<std::endl;
+            }else{//jeżeli złapie złe jedzenie
+                zycia--;
+                std::cout<<"ZYCIA: "<<zycia<<std::endl;
+            }
+        jo.erase(jo.begin()+i);//znika
+        }else if(FOOD_b.top>window.getSize().y){//jeżeli nie złapie
+            if(jo[i]->typ()=="good_food"){//jeżeli nie złapie dobrego jedzenia
+                zycia--;
+                std::cout<<"ZYCIA: "<<zycia<<std::endl;
+            }
+        jo.erase(jo.begin()+i);//znika
+        }
+    }
+    if(zycia<=0){// jeśli życia się skończą to koniec gry
+        std::cout<<"PRZEGRALES"<<std::endl;
+        window.close();
+    }
 }
 
-Good_Food::Good_Food(const sf::Texture &texture, const sf::Vector2f position):Food(texture,position){}
-Bad_Food::Bad_Food(const sf::Texture &texture, const sf::Vector2f position):Food(texture,position){}
+void Postac::start_drop(const sf::Time &e, std::vector<std::unique_ptr<Food>> &jo){
+    auto guy_bounds = getGlobalBounds();
+    if(guy_bounds.left<500) start_drop_=1;  // jeśli typek spełni jakiś warunek to zaczynają spadać
+    if(start_drop_==1){
+        time_food_drop += 10 * e.asSeconds();
+        jo[0]->drop(e,zlapane);
+        for(int j=1;j<15;j++){
+            if(jo[j-1]->getGlobalBounds().top>200){   // jeśli wcześniejsze jedzenie będzie dalej niż 200 to następne zaczyna spadać
+                jo[j]->drop(e,zlapane);
+            }
+        }
 
-void Food::drop(const sf::Time &e, int zlapane){
+    }
+}
+
+
+// METODY JEDZENIA
+
+void Food::drop(const sf::Time &e, int zlapane){//drop się wykonuje przez klasę postaci  //zmiana prędkości spadającego jedzenia
     if(zlapane<7)
         v_y=100;
     if(zlapane>=7 && zlapane <15)
@@ -75,39 +108,3 @@ void Food::drop(const sf::Time &e, int zlapane){
         v_y=200;
     move(0,v_y*e.asSeconds());
 }
-
-
-void Postac::disappear(std::vector<Good_Food> &jo){
-    for(int i=0; i<jo.size(); i++){
-        auto FOOD_b =jo[i].getGlobalBounds();
-        if(getGlobalBounds().intersects(FOOD_b)==1){
-            std::cout<<"zlapal"<<std::endl;
-            jo.erase(jo.begin()+i);
-            zlapane++;
-            std::cout<<zlapane<<std::endl;
-        }
-    }
-}
-
-void Postac::start_drop(const sf::Time &e, std::vector<Good_Food> &jo){
-    auto guy_bounds = getGlobalBounds();
-    if(guy_bounds.left<500) start_drop_=1;  // jeśli typek spełni jakiś warunek to zaczynają spadać
-    if(start_drop_==1){
-        time_food_drop += 10 * e.asSeconds();
-        jo[0].drop(e,zlapane);
-        for(int j=1;j<15;j++){
-            if(jo[j-1].getGlobalBounds().top>200){   // jeśli wcześniejsze jedzenie będzie dalej niż 200 to następne zaczyna spadać
-                jo[j].drop(e,zlapane);
-            }
-        }
-
-    }
-}
-/*void Bad_Food::disappear(Postac &guy){
-    auto FOOD_b = getGlobalBounds();
-    auto GUY = guy.getGlobalBounds();
-    if(FOOD_b().intersects(GUY)){
-        std::cout<<"nie zlapal"<<std::endl;
-    }
-}*/
-

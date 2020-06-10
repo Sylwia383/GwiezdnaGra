@@ -8,17 +8,21 @@ void Postac::add_bits_of_texture(sf::IntRect xxx){
 
 void Postac::texture_walk(const sf::Time &e)
 {
+    auto b = getGlobalBounds();
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left) == sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
         time_animacji_guya = 0;
         setScale(1.0, 1.0);
         setTextureRect(bits_of_texture[0]);
+        setPosition(b.left, b.top);
     }
     else{
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
             setScale(1.0, 1.0);
+            setPosition(b.left, b.top);
         }
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
             setScale(-1.0, 1.0);
+            setPosition(b.left+b.width, b.top);
         }
         if(time_animacji_guya < 4.0){
             time_animacji_guya += 12 * e.asSeconds();
@@ -38,8 +42,8 @@ void Postac::texture_walk(const sf::Time &e)
 
 void Postac::walk(const sf::Time &e){
     auto guy_bounds = getGlobalBounds();
-    if(guy_bounds.top+guy_bounds.height>600) v_y=0;
     v_y += a_y * e.asSeconds();
+    if(guy_bounds.top+guy_bounds.height>600) v_y=0;
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
         v_x=-200;
     }else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
@@ -107,4 +111,5 @@ void Food::drop(const sf::Time &e, int zlapane){//drop siÄ™ wykonuje przez klasÄ
     if(zlapane>=75 && zlapane <=100)
         v_y=200;
     move(0,v_y*e.asSeconds());
+    rotate(rotat*e.asSeconds());
 }

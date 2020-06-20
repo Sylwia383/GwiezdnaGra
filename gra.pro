@@ -10,8 +10,12 @@ CONFIG(debug, debug|release){
     LIBS += -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-system -lsfml-window
 }
 SOURCES += \
+        icytower.cpp \
         klasy.cpp \
-        main.cpp
+        main.cpp \
+        postac.cpp
 
 HEADERS += \
-    klasy.h
+    icytower.h \
+    klasy.h \
+    postac.h \

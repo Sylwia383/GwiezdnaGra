@@ -1,4 +1,4 @@
-#include "klasy.h"
+#include "postac.h"
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Super gra");
@@ -32,15 +32,28 @@ int main() {
     if(!tekstury_jedenia[14].loadFromFile("tekstury/ZLEjedzenie/cookingKnife_NW.png")) { return 1; }
 
 
-
+// WEKTOR JEDZENIA
     sf::Vector2f pozycja(300,0);
     std::vector<std::unique_ptr<Food>> v_jedzonko;
-    for(int i=0; i<100; i++){
+    for(int i=0; i<10; i++){
         int ktora_klasa = std::rand()%4;
         if(ktora_klasa==1 || ktora_klasa==2 || ktora_klasa==3)
             v_jedzonko.emplace_back(std::make_unique<Good_Food>(tekstury_jedenia[rand()%11],sf::Vector2f(std::rand() % (window.getSize().x -200),-120)));
         else if(ktora_klasa==0)
             v_jedzonko.emplace_back(std::make_unique<Bad_Food>(tekstury_jedenia[(rand()%4)+11],sf::Vector2f(std::rand() % (window.getSize().x -200),-120)));
+    }
+
+
+// ICY TOWER
+    sf::Texture icyy;
+    if(!icyy.loadFromFile("tekstury/platformy/chmura.png")) { return 1; }
+    std::vector<std::unique_ptr<platformy>> v_platform;
+    for(int i=0; i<100; i++){
+        int ktora_platforma = std::rand()%4;
+        //if(ktora_platforma==1 || ktora_platforma==2 || ktora_platforma==3)
+           // v_platform.emplace_back(std::make_unique<w_dol>(icyy,sf::Vector2f(std::rand() % (window.getSize().x -200),-120)));
+        //else if(ktora_platforma==0)
+            v_platform.emplace_back(std::make_unique<w_dol_i_w_boki>(icyy,sf::Vector2f(std::rand() % (window.getSize().x -200),-120)));
     }
 
 
@@ -58,18 +71,19 @@ int main() {
 
         guy.texture_walk(elapsed);
         guy.walk(elapsed);
-        guy.disappear(v_jedzonko,window);
-        guy.start_drop(elapsed,v_jedzonko); // kiedy postać coś osiągnie to zaczynają spadać (najlepiej żeby to było cos nieodwracalnego) może boola jakiegoś zrobić
-
-        /*for(auto &it : v_jedzonko){
-            it->drop(elapsed,guy);
-        }*/
+        guy.disappear_food(v_jedzonko,window);
+        guy.start_drop_food(elapsed,v_jedzonko); // kiedy postać coś osiągnie to zaczynają spadać (najlepiej żeby to było cos nieodwracalnego) może boola jakiegoś zrobić
+        guy.start_icy_tower(elapsed,v_platform,v_jedzonko);
+        guy.koniec_gry(window);
 
         window.clear(sf::Color::Black);
 
 
         window.draw(guy);
         for(auto &it : v_jedzonko){
+            window.draw(*it);
+        }
+        for(auto &it : v_platform){
             window.draw(*it);
         }
 

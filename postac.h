@@ -47,5 +47,6 @@ public:
     void pocisk_start(const sf::Time &e,std::vector<std::unique_ptr<Wrogowie>> &wektor,sf::Texture &uff);
     void znikanie_wrogow_i_pociskow(std::vector<std::unique_ptr<Wrogowie> > &wektor, sf::RenderWindow &window,sf::Texture &tak,sf::Texture &nie,std::vector<std::unique_ptr<Wrogowie>> &wektor2);
     void przesuwajace_tlo(const sf::Time &e,sf::Sprite &tloo,sf::Sprite &tlo);
+    void wyswieltanie_danych(sf::Sprite &zlap,sf::Sprite &l1,sf::Sprite &l2,sf::Sprite &l3,sf::Sprite &l4,sf::Texture &zl,sf::Texture &ze);
     void koniec_gry(sf::RenderWindow &window,std::vector<std::unique_ptr<sf::Sprite>> &czeresnia,sf::Texture &tak);
 };

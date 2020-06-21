@@ -95,14 +95,12 @@ void Postac::texture_walk(const sf::Time &e)//animacja tekstury
 void Postac::walk(const sf::Time &e,sf::RenderWindow &window){
     auto guy_bounds = getGlobalBounds();
 
-    if(w_statku_==false && guy_bounds.left > 0 && guy_bounds.left+guy_bounds.width < window.getSize().x){
+    if(w_statku_==0 && guy_bounds.left > 0 && guy_bounds.left+guy_bounds.width < window.getSize().x){
         a_y_=800;
         v_y_ += a_y_ * e.asSeconds();
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
-            //if(guy_bounds.left > 0)
                 v_x_=-200;
         }else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
-            //if(guy_bounds.left+guy_bounds.width < window.getSize().x)
                 v_x_=200;
         }else{
             v_x_=0;
@@ -117,7 +115,7 @@ void Postac::walk(const sf::Time &e,sf::RenderWindow &window){
             }
         }
         move(v_x_*e.asSeconds(), v_y_*e.asSeconds());
-    }else{//jeżeli zostanie odpalony trzeci poziom
+    }else if(w_statku_==1){//jeżeli zostanie odpalony trzeci poziom
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
             if(guy_bounds.top >0)
                 move(0,e.asSeconds() * -200);
@@ -225,7 +223,7 @@ void Postac::start_icy_tower(const sf::Time &e, std::vector<std::unique_ptr<plat
 
 void Postac::start_wrogowie(const sf::Time &e, std::vector<std::unique_ptr<Wrogowie>> &wrogowie,sf::RenderWindow &window, std::vector<std::unique_ptr<sf::Sprite>> &statek,sf::Texture &stat,sf::Texture &sG1,sf::Texture &sG2,sf::Texture &sG3,sf::Texture &sG4){
     auto guy_bounds = getGlobalBounds();
-    if(ile_kolizji_>30&&zestrzelony_==0){
+    if(ile_kolizji_>30 && zestrzelony_==0){
         statek.emplace_back(std::make_unique<sf::Sprite>());
         statek[0]->setTexture(stat);
         statek[0]->setPosition(sf::Vector2f(180,400));
@@ -245,6 +243,8 @@ void Postac::start_wrogowie(const sf::Time &e, std::vector<std::unique_ptr<Wrogo
             setPosition(sf::Vector2f(190,500));
             w_statku_=1;
             start_wrogowie_=1;  // jeśli typek spełni jakiś warunek to zaczynają spadać
+
+
         }
     }
     if(kolizja_ze_statkiem_==1){//&&zestrzelony_<=0){
@@ -340,6 +340,53 @@ void Postac::przesuwajace_tlo(const sf::Time &e,sf::Sprite &tloo,sf::Sprite &tlo
 }
 
 
+void Postac::wyswieltanie_danych(sf::Sprite &zlap_zest,sf::Sprite &l1,sf::Sprite &l2,sf::Sprite &l3,sf::Sprite &l4,sf::Texture &zl,sf::Texture &ze){
+    std::vector<sf::IntRect> cyfry(10);
+    cyfry[0]=sf::IntRect(404,0,45,59);
+    cyfry[1]=sf::IntRect(0,0,45,59);
+    cyfry[2]=sf::IntRect(45,0,45,59);
+    cyfry[3]=sf::IntRect(89,0,45,59);
+    cyfry[4]=sf::IntRect(135,0,45,59);
+    cyfry[5]=sf::IntRect(180,0,45,59);
+    cyfry[6]=sf::IntRect(225,0,45,59);
+    cyfry[7]=sf::IntRect(271,0,45,59);
+    cyfry[8]=sf::IntRect(314,0,45,59);
+    cyfry[9]=sf::IntRect(360,0,45,59);
+
+    if(zycia_==10){
+        l1.setTextureRect(cyfry[1]);
+        l2.setTextureRect(cyfry[0]);
+    }
+    for(int i=9; i>0; i--){
+        if(zycia_==i){
+            l1.setTextureRect(cyfry[0]);
+            l2.setTextureRect(cyfry[i]);
+        }
+    }
+
+    if(zlapane_>0&&zlapane_<=50){
+        zlap_zest.setTexture(zl);
+        for(int i=5; i>=0; i--){
+            if(zlapane_>50){}// ///////////////////////////////////////////////// tuuu
+            l3.setTextureRect(cyfry[i]);
+            for(int j=9; j>=0; j--){
+                l4.setTextureRect(cyfry[j]);
+            }
+        }
+    }
+
+    if(zestrzelony_>0&&zestrzelony_<=50){
+        zlap_zest.setTexture(ze);
+        for(int i=5; i>=0; i--){
+            l3.setTextureRect(cyfry[i]);
+            for(int j=9; j>=0; j--){
+                l4.setTextureRect(cyfry[j]);
+            }
+        }
+    }
+
+
+}
 
 void Postac::koniec_gry(sf::RenderWindow &window,std::vector<std::unique_ptr<sf::Sprite>> &czeresnia,sf::Texture &czer){
     auto guy_bounds = getGlobalBounds();

@@ -1,4 +1,5 @@
 #include "postac.h"
+#include <SFML/Audio.hpp>
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(460, 700), "Super gra");
@@ -14,7 +15,6 @@ int main() {
 
     sf::Sprite poczatek_tlo;
     poczatek_tlo.setPosition(0,0);
-
 
 
 //POSTAĆ
@@ -45,9 +45,6 @@ int main() {
     if(!statek_z_G3.loadFromFile("tekstury/Postac/Statek/statekG3.png")) { return 1; }
     sf::Texture statek_z_G4;
     if(!statek_z_G4.loadFromFile("tekstury/Postac/Statek/statekG4.png")) { return 1; }
-
-
-
 
 
 //TEKSTURY JEDZENIA
@@ -124,7 +121,6 @@ int main() {
     std::vector<std::unique_ptr<sf::Sprite>> statek_i_czeresnia;
 
 
-
 //TLO
     sf::Texture tlo1;
     if(!tlo1.loadFromFile("tekstury/sheett.png")) { return 1; }
@@ -141,7 +137,45 @@ int main() {
     tloo.setPosition(0,0);
 
 
-// ///
+//ODLICZANIE
+    sf::Texture zyciaa;
+    if(!zyciaa.loadFromFile("tekstury/odliczanie/zycia.png")) { return 1; }
+    sf::Sprite zycia;
+    zycia.setPosition(20,20);
+    zycia.setScale(0.5,0.5);
+    zycia.setTexture(zyciaa);
+
+    sf::Texture zlapane;
+    if(!zlapane.loadFromFile("tekstury/odliczanie/zlapane.png")) { return 1; }
+    sf::Texture zestrzelone;
+    if(!zestrzelone.loadFromFile("tekstury/odliczanie/zestrzelone.png")) { return 1; }
+    sf::Sprite zlapane_zestrzelone;
+    zlapane_zestrzelone.setPosition(300,20);
+    zlapane_zestrzelone.setScale(0.5,0.5);
+
+    sf::Texture liczb;
+    if(!liczb.loadFromFile("tekstury/odliczanie/1234.png")) { return 1; }
+    sf::Sprite l1;
+    l1.setPosition(20,40);
+    l1.setTexture(liczb);
+    sf::Sprite l2;
+    l2.setPosition(40,40);
+    l2.setTexture(liczb);
+    sf::Sprite l3;
+    l3.setPosition(370,40);
+    l3.setTexture(liczb);
+    sf::Sprite l4;
+    l4.setPosition(400,40);
+    l4.setTexture(liczb);
+
+
+//MUZYKA
+    sf::Music music;
+        if (!music.openFromFile("muzyka/calaa1.ogg")){return 1;}
+        music.play();
+        music.setLoop(true);
+
+// /// // /// // /// //
 
     while (window.isOpen()) {
         sf::Event event;
@@ -162,6 +196,7 @@ int main() {
         guy.pocisk_start(elapsed,pociski,poci);
         guy.znikanie_wrogow_i_pociskow(v_wrogowie,window,strzelajacy,nie_strzelajacy,pociski);
         guy.przesuwajace_tlo(elapsed,tloo,tlo);
+        guy.wyswieltanie_danych(zlapane_zestrzelone,l1,l2,l3,l4,zlapane,zestrzelone);
         guy.koniec_gry(window,statek_i_czeresnia,czer);
 
         for(auto &it : pociski){
@@ -172,6 +207,13 @@ int main() {
 
         window.draw(tloo);
         window.draw(tlo);
+
+        window.draw(zycia);
+        window.draw(zlapane_zestrzelone);
+        window.draw(l1);
+        window.draw(l2);
+        window.draw(l3);
+        window.draw(l4);
 
         window.draw(guy);
         for(auto &it : v_jedzonko){

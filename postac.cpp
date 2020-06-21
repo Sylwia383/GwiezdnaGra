@@ -5,16 +5,7 @@ void Postac::add_bits_of_texture(sf::IntRect xxx){
     bits_of_texture.emplace_back(xxx);
 }
 
-void Postac::koniec_gry(sf::RenderWindow &window){
-    auto guy_bounds = getGlobalBounds();
-    if(zycia<=0){// jeśli życia się skończą to koniec gry
-        std::cout<<"PRZEGRALES"<<std::endl;
-        window.close();
-    }
-    if(guy_bounds.top>620){
-        window.close();
-    }
-}
+
 
 void Postac::texture_walk(const sf::Time &e)
 {
@@ -58,8 +49,6 @@ void Postac::walk(const sf::Time &e,sf::RenderWindow &window){
     if(w_statku==0){
         a_y=800;
         v_y += a_y * e.asSeconds();
-        // to tylko w jedzeniuuu
-        //if(guy_bounds.top+guy_bounds.height>600) v_y=0;
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
             v_x=-200;
         }else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
@@ -67,7 +56,7 @@ void Postac::walk(const sf::Time &e,sf::RenderWindow &window){
         }else{
             v_x=0;
         }
-        if(ile_kolizji<=0){
+        if(ile_kolizji<=0||ile_kolizji>30){
             if(guy_bounds.top+guy_bounds.height>450){
                 v_y=0;
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
@@ -85,14 +74,14 @@ void Postac::walk(const sf::Time &e,sf::RenderWindow &window){
             if(guy_bounds.top+guy_bounds.height < window.getSize().y)
                 move(0,e.asSeconds() * 200);
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
             if(guy_bounds.left > 0)
+                move(e.asSeconds() * -200,0);
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+            if(guy_bounds.left+guy_bounds.width < window.getSize().x)
                 move(e.asSeconds() * 200,0);
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-            if(guy_bounds.left+guy_bounds.width < window.getSize().x)
-                move(e.asSeconds() * -200,0);
-    }
     }
 }
 
@@ -122,8 +111,7 @@ void Postac::disappear_food(std::vector<std::unique_ptr<Food>> &jo, sf::RenderWi
 void Postac::start_drop_food(const sf::Time &e, std::vector<std::unique_ptr<Food>> &jo){
     auto guy_bounds = getGlobalBounds();
     if(guy_bounds.left<500)
-        //start_drop_food_=1;  // jeśli typek spełni jakiś warunek to zaczynają spadać
-    // kliknie na przycisk okayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+        start_drop_food_=1;  // jeśli typek spełni jakiś warunek to zaczynają spadać
     if(start_drop_food_==1){
         if(jo.size()>0 && zlapane<2){
             jo[0]->drop(e,zlapane);
@@ -143,12 +131,19 @@ void Postac::start_icy_tower(const sf::Time &e, std::vector<std::unique_ptr<plat
     auto guy_bounds = getGlobalBounds();
     if(zlapane>=2){//warunek
         start_icy_tower_=1;  // jeśli typek spełni jakiś warunek to zaczynają spadać
+    }//else{
+    if(ile_kolizji>30){
+        //start_icy_tower_=0;
+        for(auto &it : platformy){
+            it->setPosition(-200,0);
+        }
     }
     if(start_icy_tower_==1){
         platformy[0]->ruch(e,ile_kolizji);
         for(int j=1;j<=platformy.size();j++){
-            if(platformy[j-1]->getGlobalBounds().top>200){   // jeśli wcześniejsze jedzenie będzie dalej niż 200 to następne zaczyna spadać
+            if(platformy[j-1]->getGlobalBounds().top>200){//&&ile_kolizji<10){   // jeśli wcześniejsze jedzenie będzie dalej niż 200 to następne zaczyna spadać
                 platformy[j]->ruch(e,ile_kolizji);
+                //start_icy_tower_=0;
             }
             if(platformy[j-1]->getGlobalBounds().top>620){
                 platformy.erase(platformy.begin()+j-1);
@@ -175,28 +170,33 @@ void Postac::start_icy_tower(const sf::Time &e, std::vector<std::unique_ptr<plat
     }
 }
 
-void Postac::start_wrogowie(const sf::Time &e, std::vector<std::unique_ptr<Wrogowie>> &wrogowie,sf::RenderWindow &window){
+void Postac::start_wrogowie(const sf::Time &e, std::vector<std::unique_ptr<Wrogowie>> &wrogowie,sf::RenderWindow &window, std::vector<std::unique_ptr<sf::Sprite>> &statek,sf::Texture &stat,sf::Texture &statek_nowy){
     auto guy_bounds = getGlobalBounds();
-    //if(ile_kolizji<1000){
-        //pojawia się statek
-
-    //}
-    //if(statekkolizja){
-    //w_statku=1;
-        //start_wrogowie_=1;  // jeśli typek spełni jakiś warunek to zaczynają spadać
-    //}
-    // kliknie na przycisk okayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
-    if(start_wrogowie_==1){
-        /*if(wrogowie.size()>0 && zlapane<2){
-            wrogowie[0]->ruch(e,zlapane);
+    if(ile_kolizji>30&&zestrzelony<=0){
+        statek.emplace_back(std::make_unique<sf::Sprite>());
+        statek[0]->setTexture(stat);
+        statek[0]->setPosition(sf::Vector2f(300,300));
+        if(guy_bounds.left<450&&guy_bounds.left+guy_bounds.width>300&&
+           guy_bounds.top>300&&guy_bounds.top+guy_bounds.height<500){
+            kolizja_ze_statkiem_=1;
+            setTexture(statek_nowy);
+            setTextureRect(sf::IntRect(0,0,82,144));
+            setPosition(sf::Vector2f(200,450));
+            w_statku=1;
+            start_wrogowie_=1;  // jeśli typek spełni jakiś warunek to zaczynają spadać
         }
-        for(int j=1;j<wrogowie.size();j++){//że dla ilu? i tak spadają wszystkie
-            if(wrogowie[j-1]->getGlobalBounds().top>200){   // jeśli wcześniejsze jedzenie będzie dalej niż 200 to następne zaczyna spadać
-                //jo[j]->drop(e,zlapane);
-            }
-        }*/
+    }
+    if(kolizja_ze_statkiem_==1){
+        statek[0]->setPosition(-200,0);
+    }
+    if(start_wrogowie_==1&&zestrzelony<25){
         for(auto &it : wrogowie){
             it->ruch(e,window);
+        }
+    }
+    if(zestrzelony>=25){
+        for(auto &it : wrogowie){
+            it->setPosition(1,-200);
         }
     }
 }
@@ -224,7 +224,6 @@ void Postac::znikanie_wrogow_i_pociskow(std::vector<std::unique_ptr<Wrogowie> > 
             if(wektor[i]->typ()=="TAK"){
                 wektor.emplace_back(std::make_unique<Wrogowie_strzelajacy>(tak,sf::Vector2f((std::rand() % 800),-80)));
             }else if(wektor[i]->typ()=="NIE"){
-                std::cout<<"krzeslo"<<std::endl;
                 wektor.emplace_back(std::make_unique<Wrogowie_nie_strzelajacy>(nie,sf::Vector2f((std::rand() % 800),-80)));
             }
             wektor.erase(wektor.begin()+i);
@@ -251,9 +250,36 @@ void Postac::znikanie_wrogow_i_pociskow(std::vector<std::unique_ptr<Wrogowie> > 
                 }else if(wektor[i]->typ()=="NIE"){
                     wektor.emplace_back(std::make_unique<Wrogowie_nie_strzelajacy>(nie,sf::Vector2f((std::rand() % 800),-80)));
                 }
+                zestrzelony++;
+                std::cout<<"ZESTRZELONY: "<<zestrzelony<<std::endl;
                 wektor.erase(wektor.begin()+i);
                 wektor2.erase(wektor2.begin()+j);
             }
         }
+    }
+}
+
+void Postac::koniec_gry(sf::RenderWindow &window,std::vector<std::unique_ptr<sf::Sprite>> &czeresnia,sf::Texture &czer){
+    auto guy_bounds = getGlobalBounds();
+    if(zycia<=0){// jeśli życia się skończą to koniec gry
+        std::cout<<"PRZEGRALES"<<std::endl;
+        window.close();
+    }
+    if(guy_bounds.top>620){
+        window.close();
+    }
+    if(zestrzelony>=25){
+        czeresnia.emplace_back(std::make_unique<sf::Sprite>());
+        czeresnia[0]->setTexture(czer);
+        czeresnia[0]->setPosition(sf::Vector2f(300,300));
+        czeresnia[0]->setTextureRect(sf::IntRect(0,0,185,185));
+        if(guy_bounds.left<450&&guy_bounds.left+guy_bounds.width>300&&
+           guy_bounds.top>300&&guy_bounds.top+guy_bounds.height<500){
+            kolizja_z_czeresnia_=1;
+        }
+    }
+    if(kolizja_z_czeresnia_==1){
+        std::cout<<"WYGRALES!!!"<<std::endl;
+        window.close();
     }
 }

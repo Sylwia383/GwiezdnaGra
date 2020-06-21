@@ -5,7 +5,7 @@ int main() {
     sf::Clock zegar;
 
     sf::Texture guyy;
-    if(!guyy.loadFromFile("tekstury/character_femaleAdventurer_sheet.png")) { return 1; }
+    if(!guyy.loadFromFile("tekstury/Postac/character_femaleAdventurer_sheet.png")) { return 1; }
     Postac guy(guyy,sf::Vector2f(570,110));
     guy.add_bits_of_texture(sf::IntRect(16,32,64,97));
     guy.add_bits_of_texture(sf::IntRect(300,542,65,97));
@@ -79,6 +79,22 @@ int main() {
     std::vector<std::unique_ptr<Wrogowie>> pociski;
 
 
+//POJAZD KOSMICZNY
+    sf::Texture stat;
+    if(!stat.loadFromFile("tekstury/statek.png")) { return 1; }
+    sf::Texture czer;
+    if(!czer.loadFromFile("tekstury/czeresnia.png")) { return 1; }
+    std::vector<std::unique_ptr<sf::Sprite>> statek_i_czeresnia;
+
+    sf::Texture statek_z_postacia;
+    if(!statek_z_postacia.loadFromFile("tekstury/Postac/statek/statek1.png")) { return 1; }
+
+
+
+
+
+
+
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -93,11 +109,11 @@ int main() {
         guy.disappear_food(v_jedzonko,window);
         guy.start_drop_food(elapsed,v_jedzonko); // kiedy postać coś osiągnie to zaczynają spadać (najlepiej żeby to było cos nieodwracalnego) może boola jakiegoś zrobić
         guy.start_icy_tower(elapsed,v_platform);
-        guy.start_wrogowie(elapsed,v_wrogowie,window);
+        guy.start_wrogowie(elapsed,v_wrogowie,window,statek_i_czeresnia,stat,statek_z_postacia);
         guy.pocisk_start(elapsed,pociski,poci);
         guy.znikanie_wrogow_i_pociskow(v_wrogowie,window,strzelajacy,nie_strzelajacy,pociski);
 
-        guy.koniec_gry(window);
+        guy.koniec_gry(window,statek_i_czeresnia,czer);
 
         for(auto &it : pociski){
             it->ruch(elapsed,window);
@@ -119,7 +135,10 @@ int main() {
         for(auto &it : pociski){
             window.draw(*it);
         }
-
+        for(auto &it : statek_i_czeresnia){
+            window.draw(*it);
+        }
+//window.draw(statek);
         window.display();
     }
 

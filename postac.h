@@ -24,6 +24,9 @@ class Postac : public sf::Sprite{
     //bool gora_dol=0;
     bool w_statku=0;
     float czas_pocisku=0;
+    bool kolizja_ze_statkiem_=0;
+    bool kolizja_z_czeresnia_=0;
+    int zestrzelony=0;
 public:
     Postac(const sf::Texture &texture, const sf::Vector2f &position) : sf::Sprite(texture){
         setPosition(position);
@@ -34,8 +37,8 @@ public:
     void disappear_food(std::vector<std::unique_ptr<Food>> &v_jedzonko,sf::RenderWindow &window);//tutaj odejmowanie żyć i złapane++
     void start_drop_food(const sf::Time &e, std::vector<std::unique_ptr<Food>> &v_jedzonko);//tuyaj większa prędkość wzależności od wysokości
     void start_icy_tower(const sf::Time &e, std::vector<std::unique_ptr<platformy>> & platformy);//,std::vector<std::unique_ptr<Food>> &jo);
-    void start_wrogowie(const sf::Time &e, std::vector<std::unique_ptr<Wrogowie>> &wrogowie,sf::RenderWindow &window);
+    void start_wrogowie(const sf::Time &e, std::vector<std::unique_ptr<Wrogowie>> &wrogowie,sf::RenderWindow &window, std::vector<std::unique_ptr<sf::Sprite>> &statek,sf::Texture &stat,sf::Texture &statek_nowy);
     void pocisk_start(const sf::Time &e,std::vector<std::unique_ptr<Wrogowie>> &wektor,sf::Texture &uff);
     void znikanie_wrogow_i_pociskow(std::vector<std::unique_ptr<Wrogowie> > &wektor, sf::RenderWindow &window,sf::Texture &tak,sf::Texture &nie,std::vector<std::unique_ptr<Wrogowie>> &wektor2);
-    void koniec_gry(sf::RenderWindow &window);
+    void koniec_gry(sf::RenderWindow &window,std::vector<std::unique_ptr<sf::Sprite>> &czeresnia,sf::Texture &tak);
 };

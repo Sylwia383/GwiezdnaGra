@@ -17,8 +17,8 @@ void przyspieszaniee(float &v, int wzgledem){
 
 
 void w_dol::ruch(const sf::Time &e, int ile_kolizji){
-    przyspieszaniee(v_y, ile_kolizji);
-    move(0,v_y*e.asSeconds());
+    przyspieszaniee(v_y_, ile_kolizji);
+    move(0,v_y_*e.asSeconds());
 }
 
 
@@ -26,29 +26,25 @@ void w_dol::ruch(const sf::Time &e, int ile_kolizji){
 void w_dol_i_w_boki::ruch(const sf::Time &e, int ile_kolizji){
     auto bounds = getGlobalBounds();
     if(strona==0){
-        v_x=50;
+        v_x_=50;
     }else{
-        v_x=-50;
+        v_x_=-50;
     }
 
     if(bounds.left <= 0) { //lewo
-        //v_x = std::abs(v_x);
         strona=0;
-        std::cout<<"dupaaalewo"<<std::endl;
     }
-    if(bounds.left + bounds.width >= 800) { //prawo
-        //v_x = -std::abs(v_x);
+    if(bounds.left + bounds.width >= 460) { //prawo
         strona=1;
-        std::cout<<"dupaaaprawo"<<std::endl;
     }
-    przyspieszaniee(v_y, ile_kolizji);
-    move(v_x*e.asSeconds(),v_y*e.asSeconds());
+    przyspieszaniee(v_y_, ile_kolizji);
+    move(v_x_*e.asSeconds(),v_y_*e.asSeconds());
 }
 
 
-float platformy::v_yfunkcja(){
-    return v_y;
+float platformy::v_y(){
+    return v_y_;
 }
-float platformy::v_xfunkcja(){
-    return v_x;
+float platformy::v_x(){
+    return v_x_;
 }

@@ -6,16 +6,16 @@
 
 class platformy : public sf::Sprite{
 protected:
-    float v_x;
-    float v_y;
-    float czas=0;
+    float v_x_;
+    float v_y_;
+    float czas_=0;
 public:
     platformy(const sf::Texture &texture, const sf::Vector2f &position) : sf::Sprite(texture){
         setPosition(position);
     }
     virtual void ruch(const sf::Time &e, int ile_kolizji)=0;
-    float v_yfunkcja();
-    float v_xfunkcja();
+    float v_y();
+    float v_x();
 };
 
 class w_dol : public platformy{

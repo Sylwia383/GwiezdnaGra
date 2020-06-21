@@ -6,8 +6,8 @@
 
 class Food : public sf::Sprite{
     std::string typ_="food";
-    float v_y;
-    float rotat = (rand()%100)-50;
+    float v_y_;
+    float rotat_ = (rand()%100)-50;
 public:
     Food(const sf::Texture &texture, const sf::Vector2f position): sf::Sprite(texture){
         setPosition(position);

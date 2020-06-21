@@ -13,9 +13,11 @@ SOURCES += \
         icytower.cpp \
         klasy.cpp \
         main.cpp \
-        postac.cpp
+        postac.cpp \
+        wrogowie_poziom_3.cpp
 
 HEADERS += \
     icytower.h \
     klasy.h \
-    postac.h \
+    postac.h \ \
+    wrogowie_poziom_3.h

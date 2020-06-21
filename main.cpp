@@ -49,15 +49,34 @@ int main() {
     if(!icyy.loadFromFile("tekstury/platformy/chmura.png")) { return 1; }
     std::vector<std::unique_ptr<platformy>> v_platform;
     for(int i=0; i<100; i++){
-        int ktora_platforma = std::rand()%4;
-        //if(ktora_platforma==1 || ktora_platforma==2 || ktora_platforma==3)
-           // v_platform.emplace_back(std::make_unique<w_dol>(icyy,sf::Vector2f(std::rand() % (window.getSize().x -200),-120)));
-        //else if(ktora_platforma==0)
+        int ktora_platforma = std::rand()%3;
+        if(ktora_platforma==1 || ktora_platforma==2)
+            v_platform.emplace_back(std::make_unique<w_dol>(icyy,sf::Vector2f(std::rand() % (window.getSize().x -200),-120)));
+        else if(ktora_platforma==0)
             v_platform.emplace_back(std::make_unique<w_dol_i_w_boki>(icyy,sf::Vector2f(std::rand() % (window.getSize().x -200),-120)));
     }
 
 
+// WROGOWIE
+    sf::Texture strzelajacy;
+    if(!strzelajacy.loadFromFile("tekstury/wrogowie/strzelajacy.png")) { return 1; }
+    sf::Texture nie_strzelajacy;
+    if(!nie_strzelajacy.loadFromFile("tekstury/wrogowie/nie_strzelajacy.png")) { return 1; }
+    std::vector<std::unique_ptr<Wrogowie>> v_wrogowie;
+    for(int i=0;i<6;i++){
+        if(i<3){
+            auto cos = std::make_unique<Wrogowie_strzelajacy>(strzelajacy,sf::Vector2f((std::rand() % 800),(std::rand() % 200)-300));
+            v_wrogowie.emplace_back(move(cos));
+        }else{
+            auto cos = std::make_unique<Wrogowie_nie_strzelajacy>(nie_strzelajacy,sf::Vector2f((std::rand() % 800),(std::rand() % 300)-400));
+            v_wrogowie.emplace_back(move(cos));
+        }
+    }
 
+//POCISKI
+    sf::Texture poci;
+    if(!poci.loadFromFile("tekstury/pocisk.png")) { return 1; }
+    std::vector<std::unique_ptr<Wrogowie>> pociski;
 
 
     while (window.isOpen()) {
@@ -70,11 +89,19 @@ int main() {
         sf::Time elapsed = zegar.restart();
 
         guy.texture_walk(elapsed);
-        guy.walk(elapsed);
+        guy.walk(elapsed,window);
         guy.disappear_food(v_jedzonko,window);
         guy.start_drop_food(elapsed,v_jedzonko); // kiedy postać coś osiągnie to zaczynają spadać (najlepiej żeby to było cos nieodwracalnego) może boola jakiegoś zrobić
-        guy.start_icy_tower(elapsed,v_platform,v_jedzonko);
+        guy.start_icy_tower(elapsed,v_platform);
+        guy.start_wrogowie(elapsed,v_wrogowie,window);
+        guy.pocisk_start(elapsed,pociski,poci);
+        guy.znikanie_wrogow_i_pociskow(v_wrogowie,window,strzelajacy,nie_strzelajacy,pociski);
+
         guy.koniec_gry(window);
+
+        for(auto &it : pociski){
+            it->ruch(elapsed,window);
+        }
 
         window.clear(sf::Color::Black);
 
@@ -84,6 +111,12 @@ int main() {
             window.draw(*it);
         }
         for(auto &it : v_platform){
+            window.draw(*it);
+        }
+        for(auto &it : v_wrogowie){
+            window.draw(*it);
+        }
+        for(auto &it : pociski){
             window.draw(*it);
         }
 

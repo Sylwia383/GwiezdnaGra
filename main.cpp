@@ -69,7 +69,7 @@ int main() {
 // WEKTOR JEDZENIA
     sf::Vector2f pozycja(300,0);
     std::vector<std::unique_ptr<Food>> v_jedzonko;
-    for(int i=0; i<10; i++){
+    for(int i=0; i<90; i++){
         int ktora_klasa = std::rand()%4;
         if(ktora_klasa==1 || ktora_klasa==2 || ktora_klasa==3)
             v_jedzonko.emplace_back(std::make_unique<Good_Food>(tekstury_jedenia[rand()%11],sf::Vector2f((std::rand() % (window.getSize().x -200))+70,-120)));
@@ -158,15 +158,19 @@ int main() {
     sf::Sprite l1;
     l1.setPosition(20,40);
     l1.setTexture(liczb);
+    l1.setTextureRect(sf::IntRect(0,0,1,1));
     sf::Sprite l2;
-    l2.setPosition(40,40);
+    l2.setPosition(45,40);
     l2.setTexture(liczb);
+    l2.setTextureRect(sf::IntRect(0,0,1,1));
     sf::Sprite l3;
     l3.setPosition(370,40);
     l3.setTexture(liczb);
+    l3.setTextureRect(sf::IntRect(0,0,1,1));
     sf::Sprite l4;
-    l4.setPosition(400,40);
+    l4.setPosition(395,40);
     l4.setTexture(liczb);
+    l4.setTextureRect(sf::IntRect(0,0,1,1));
 
 
 //MUZYKA

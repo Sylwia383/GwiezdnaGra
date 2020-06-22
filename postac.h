@@ -29,7 +29,7 @@ class Postac : public sf::Sprite{
     float czas_pocisku_=0;
     bool kolizja_ze_statkiem_=0;
     bool kolizja_z_czeresnia_=0;
-    int zestrzelony_=0;
+    int zestrzelony_=-1;
     int przesuwanie_tla_tloo_=2575;
     int przesuwanie_tla_tlo_=550;
 public:

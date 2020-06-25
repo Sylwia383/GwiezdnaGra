@@ -3,7 +3,6 @@
 
 
 void Wrogowie_prosto::ruch(const sf::Time &e){
-    //v_y_=100;
     czas_=czas_+e.asSeconds();
     if(czas_>=0.5){
         v_y_+=25;

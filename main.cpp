@@ -28,12 +28,13 @@ int main() {
     if(!G4.loadFromFile("tekstury/Postac/character_maleAdventurer_sheet.png")) { return 1; }
 
 
-    Postac guy(G1,sf::Vector2f(200,300));
-    guy.add_bits_of_texture(sf::IntRect(16,32,64,97));
-    guy.add_bits_of_texture(sf::IntRect(300,542,65,97));
-    guy.add_bits_of_texture(sf::IntRect(390,542,77,97));
-    guy.add_bits_of_texture(sf::IntRect(491,542,67,97));
-    guy.add_bits_of_texture(sf::IntRect(590,542,64,97));
+    Postac guy(G1,sf::Vector2f(190,200));
+    guy.add_bits_of_texture(sf::IntRect(16,23,64,106));
+    guy.add_bits_of_texture(sf::IntRect(300,535,65,104));
+    guy.add_bits_of_texture(sf::IntRect(390,535,77,104));
+    guy.add_bits_of_texture(sf::IntRect(491,535,67,104));
+    guy.add_bits_of_texture(sf::IntRect(590,535,64,104));
+
 
 
 //POSTAĆ W RAKIECIE
@@ -79,15 +80,15 @@ int main() {
 
 
 // ICY TOWER
-    sf::Texture icyy;
-    if(!icyy.loadFromFile("tekstury/platformy/chmura.png")) { return 1; }
+    sf::Texture chmura;
+    if(!chmura.loadFromFile("tekstury/chmura.png")) { return 1; }
     std::vector<std::unique_ptr<platformy>> v_platform;
     for(int i=0; i<100; i++){
         int ktora_platforma = std::rand()%3;
         if(ktora_platforma==1 || ktora_platforma==2)
-            v_platform.emplace_back(std::make_unique<w_dol>(icyy,sf::Vector2f((std::rand() % (window.getSize().x -200))+50,-120)));
+            v_platform.emplace_back(std::make_unique<w_dol>(chmura,sf::Vector2f((std::rand() % (window.getSize().x -200))+50,-120)));
         else if(ktora_platforma==0)
-            v_platform.emplace_back(std::make_unique<w_dol_i_w_boki>(icyy,sf::Vector2f((std::rand() % (window.getSize().x -200))+50,-120)));
+            v_platform.emplace_back(std::make_unique<w_dol_i_w_boki>(chmura,sf::Vector2f((std::rand() % (window.getSize().x -200))+50,-120)));
     }
 
 
@@ -135,6 +136,7 @@ int main() {
     tloo.setTexture(tlo2);
     tloo.setTextureRect(sf::IntRect(0,2580,460,700));
     tloo.setPosition(0,0);
+
 
 
 //ODLICZANIE
@@ -196,7 +198,7 @@ int main() {
         guy.disappear_food(v_jedzonko,window);
         guy.start_drop_food(elapsed,v_jedzonko); // kiedy postać coś osiągnie to zaczynają spadać (najlepiej żeby to było cos nieodwracalnego) może boola jakiegoś zrobić
         guy.start_icy_tower(elapsed,v_platform);
-        guy.start_wrogowie(elapsed,v_wrogowie,window,statek_i_czeresnia,stat,statek_z_G1,statek_z_G2,statek_z_G3,statek_z_G4);
+        guy.start_wrogowie(elapsed,v_wrogowie,window,statek_i_czeresnia,stat,statek_z_G1,statek_z_G2,statek_z_G3,statek_z_G4,chmura);
         guy.pocisk_start(elapsed,pociski,poci);
         guy.znikanie_wrogow_i_pociskow(v_wrogowie,window,strzelajacy,nie_strzelajacy,pociski);
         guy.przesuwajace_tlo(elapsed,tloo,tlo);

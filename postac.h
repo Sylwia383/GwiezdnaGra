@@ -19,7 +19,11 @@ class Postac : public sf::Sprite{
     float v_y_;
     int a_y_ = 0;//800;//przyspieszenie grawitacyjne
     int zlapane_=0;//do jedzenia
-    int ile_kolizji_=0;//do icy tower
+
+    int ile_chmurek_=0;//do icy tower
+    float czas_chmurek_=0;
+    //int ile_kolizji_=0;
+
     bool skakac_=0;
     int zycia_=10;
     bool start_drop_food_=0;//jak if sie wykona to zacznyna spadać jedzenie
@@ -43,7 +47,7 @@ public:
     void disappear_food(std::vector<std::unique_ptr<Food>> &v_jedzonko,sf::RenderWindow &window);//tutaj odejmowanie żyć i złapane++
     void start_drop_food(const sf::Time &e, std::vector<std::unique_ptr<Food>> &v_jedzonko);//tuyaj większa prędkość wzależności od wysokości
     void start_icy_tower(const sf::Time &e, std::vector<std::unique_ptr<platformy>> & platformy);//,std::vector<std::unique_ptr<Food>> &jo);
-    void start_wrogowie(const sf::Time &e, std::vector<std::unique_ptr<Wrogowie>> &wrogowie,sf::RenderWindow &window, std::vector<std::unique_ptr<sf::Sprite>> &statek,sf::Texture &stat,sf::Texture &sG1,sf::Texture &sG2,sf::Texture &sG3,sf::Texture &sG4);
+    void start_wrogowie(const sf::Time &e, std::vector<std::unique_ptr<Wrogowie>> &wrogowie,sf::RenderWindow &window, std::vector<std::unique_ptr<sf::Sprite>> &statek,sf::Texture &stat,sf::Texture &sG1,sf::Texture &sG2,sf::Texture &sG3,sf::Texture &sG4,sf::Texture &podloga);
     void pocisk_start(const sf::Time &e,std::vector<std::unique_ptr<Wrogowie>> &wektor,sf::Texture &uff);
     void znikanie_wrogow_i_pociskow(std::vector<std::unique_ptr<Wrogowie> > &wektor, sf::RenderWindow &window,sf::Texture &tak,sf::Texture &nie,std::vector<std::unique_ptr<Wrogowie>> &wektor2);
     void przesuwajace_tlo(const sf::Time &e,sf::Sprite &tloo,sf::Sprite &tlo);

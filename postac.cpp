@@ -28,7 +28,7 @@ void Postac::poczatek_tla(const sf::Time &e,sf::RenderWindow &window,sf::Sprite 
         poczatek.setTexture(pocz3);
     }
     if(pocz3_==1&& sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-        std::cout<<mouse_pos.x<<"  "<<mouse_pos.y<<std::endl;
+        //std::cout<<mouse_pos.x<<"  "<<mouse_pos.y<<std::endl;
         if(mouse_pos.x>85 && mouse_pos.x<145 && mouse_pos.y>275  && mouse_pos.y<405){
             setTexture(G1);
             g1_=1;
@@ -64,8 +64,7 @@ void Postac::texture_walk(const sf::Time &e)//animacja tekstury
             setScale(1.0, 1.0);
             setTextureRect(bits_of_texture[0]);
             setPosition(b.left, b.top);
-        }
-        else{
+        }else{
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
                 setScale(1.0, 1.0);
                 setPosition(b.left, b.top);
@@ -106,7 +105,7 @@ void Postac::walk(const sf::Time &e,sf::RenderWindow &window){
                 move(e.asSeconds() * 200,0);
             }
         }
-        if(ile_kolizji_<=0||ile_kolizji_>30){
+        if(ile_chmurek_<=0||ile_chmurek_>=10){//500){
             if(guy_bounds.top+guy_bounds.height>550){
                 v_y_=0;
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
@@ -115,7 +114,7 @@ void Postac::walk(const sf::Time &e,sf::RenderWindow &window){
             }
         }
         move(0,v_y_*e.asSeconds());
-    }else if(ile_kolizji_>=30){//(w_statku_==1){//jeżeli zostanie odpalony trzeci poziom
+    }else if(ile_chmurek_>=10){//(w_statku_==1){//jeżeli zostanie odpalony trzeci poziom
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
             if(guy_bounds.top >0)
                 move(0,e.asSeconds() * -200);
@@ -164,7 +163,7 @@ void Postac::start_drop_food(const sf::Time &e, std::vector<std::unique_ptr<Food
         start_drop_food_=1;
         }// jeśli typek spełni jakiś warunek to zaczynają spadać
     if(start_drop_food_==1){
-        if(jo.size()>0 && zlapane_<50){
+        if(jo.size()>0 && zlapane_<5){
             jo[0]->drop(e,zlapane_);
         }
         for(int j=1;j<jo.size();j++){//że dla ilu? i tak spadają wszystkie
@@ -172,7 +171,7 @@ void Postac::start_drop_food(const sf::Time &e, std::vector<std::unique_ptr<Food
                 jo[j]->drop(e,zlapane_);
             }
         }
-        if(zlapane_>=50){
+        if(zlapane_>=1){
             for(auto &it : jo){
                 it->setPosition(-200,0);
             }
@@ -184,19 +183,19 @@ void Postac::start_drop_food(const sf::Time &e, std::vector<std::unique_ptr<Food
 
 void Postac::start_icy_tower(const sf::Time &e, std::vector<std::unique_ptr<platformy>> & platformy){//}, std::vector<std::unique_ptr<Food>> &jo){
     auto guy_bounds = getGlobalBounds();
-    if(zlapane_>=50){//warunek
+    if(zlapane_>=1){//warunek
         start_icy_tower_=1;  // jeśli typek spełni jakiś warunek to zaczynają spadać
     }
-    if(ile_kolizji_>500){
+    if(ile_chmurek_>=10){
         for(auto &it : platformy){
             it->setPosition(-200,0);
         }
     }
     if(start_icy_tower_==1){
-        platformy[0]->ruch(e,ile_kolizji_);
+        platformy[0]->ruch(e,ile_chmurek_);
         for(int j=1;j<=platformy.size();j++){
             if(platformy[j-1]->getGlobalBounds().top>200){//&&ile_kolizji<10){   // jeśli wcześniejsze jedzenie będzie dalej niż 200 to następne zaczyna spadać
-                platformy[j]->ruch(e,ile_kolizji_);
+                platformy[j]->ruch(e,ile_chmurek_);
             }
             if(platformy[j-1]->getGlobalBounds().top>720){//jak za nisko to znika
                 platformy.erase(platformy.begin()+j-1);
@@ -210,25 +209,38 @@ void Postac::start_icy_tower(const sf::Time &e, std::vector<std::unique_ptr<plat
                 v_y_=platform->v_y();
                 v_x_=platform->v_x();
                 move(v_x_*e.asSeconds(),0);
-                if(guy_bounds.top>200){
+                if(guy_bounds.top>250){
                     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
                         v_y_=-500;
-                        ile_kolizji_++;
+
+                        //ile_kolizji_++;
+                        //std::cout<<ile_kolizji_<<std::endl;
+                        if(czas_chmurek_==0){
+                            ile_chmurek_++;
+                        }else if(czas_chmurek_>=0.05){
+                            czas_chmurek_=0;
+                        }
+                        czas_chmurek_=czas_chmurek_+e.asSeconds();
+                    }else{
+                        czas_chmurek_=0;
                     }
                 }
             }else if(guy_bounds.top+guy_bounds.height>boundsPlatform.top){
-                v_y_=-300;//łapanie chmurek od dołu
+                v_y_=-200;//łapanie chmurek od dołu
             }
         }
     }
 }
 
-void Postac::start_wrogowie(const sf::Time &e, std::vector<std::unique_ptr<Wrogowie>> &wrogowie,sf::RenderWindow &window, std::vector<std::unique_ptr<sf::Sprite>> &statek,sf::Texture &stat,sf::Texture &sG1,sf::Texture &sG2,sf::Texture &sG3,sf::Texture &sG4){
+void Postac::start_wrogowie(const sf::Time &e, std::vector<std::unique_ptr<Wrogowie>> &wrogowie,sf::RenderWindow &window, std::vector<std::unique_ptr<sf::Sprite>> &statek,sf::Texture &stat,sf::Texture &sG1,sf::Texture &sG2,sf::Texture &sG3,sf::Texture &sG4,sf::Texture &podloga){
     auto guy_bounds = getGlobalBounds();
-    if(ile_kolizji_>=500 && zestrzelony_==-1){ // ////////////////////////TO MIEJSCE//////////////////////////////////////////
+    if(ile_chmurek_>=10 && zestrzelony_==-1){ // ////////////////////////TO MIEJSCE//////////////////////////////////////////
         statek.emplace_back(std::make_unique<sf::Sprite>());
         statek[0]->setTexture(stat);
         statek[0]->setPosition(sf::Vector2f(180,400));
+        statek.emplace_back(std::make_unique<sf::Sprite>());
+        statek[1]->setTexture(podloga);
+        statek[1]->setPosition(sf::Vector2f(0,530));
         if(guy_bounds.left<266&&guy_bounds.left+guy_bounds.width>180&&
            guy_bounds.top+guy_bounds.height>400&&guy_bounds.top<550){
             kolizja_ze_statkiem_=1;
@@ -243,13 +255,15 @@ void Postac::start_wrogowie(const sf::Time &e, std::vector<std::unique_ptr<Wrogo
             }
             setTextureRect(sf::IntRect(0,0,82,144));
             setPosition(sf::Vector2f(190,500));
+
             w_statku_=1;
             start_wrogowie_=1;  // jeśli typek spełni jakiś warunek to zaczynają spadać
             zestrzelony_=0;
         }
     }
     if(kolizja_ze_statkiem_==1){//&&zestrzelony_<=0){
-        statek[0]->setPosition(-200,0);
+        statek.erase(statek.begin()+0);
+        statek.erase(statek.begin()+1);
         //w_statku_=1;
     }
     if(start_wrogowie_==1&&zestrzelony_<25){
@@ -267,7 +281,7 @@ void Postac::start_wrogowie(const sf::Time &e, std::vector<std::unique_ptr<Wrogo
 void Postac::pocisk_start(const sf::Time &e,std::vector<std::unique_ptr<Wrogowie>> &wektor,sf::Texture &uff){
     auto bounds=getGlobalBounds();
     if(w_statku_==1){
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
             if(czas_pocisku_==0){
                 wektor.emplace_back(std::make_unique<Pocisk>(uff,sf::Vector2f(bounds.left+(bounds.width/2),bounds.top+(bounds.height/2))));;
             }else if(czas_pocisku_>=0.5){
@@ -326,7 +340,7 @@ void Postac::znikanie_wrogow_i_pociskow(std::vector<std::unique_ptr<Wrogowie> > 
 
 void Postac::przesuwajace_tlo(const sf::Time &e,sf::Sprite &tloo,sf::Sprite &tlo){
     //ruszające się tło
-    if(ile_kolizji_>0){
+    if(ile_chmurek_>0){
         czas_tla_ += 12 * e.asSeconds();
         if(czas_tla_>0.5){
             tloo.setTextureRect(sf::IntRect(0,przesuwanie_tla_tloo_,460,700));
@@ -364,56 +378,50 @@ void Postac::wyswieltanie_danych(sf::Sprite &zlap_zest,sf::Sprite &l1,sf::Sprite
             l2.setTextureRect(cyfry[i]);
         }
     }
-    if(zlapane_>0&&zlapane_<=50){
-        zlap_zest.setTexture(zl);
-        if(zlapane_>0&&zlapane_<10)
-             l3.setTextureRect(cyfry[0]);
-        if(zlapane_>=10&&zlapane_<20)
-            l3.setTextureRect(cyfry[1]);
-        if(zlapane_>=20&&zlapane_<30)
-            l3.setTextureRect(cyfry[2]);
-        if(zlapane_>=30&&zlapane_<40)
-            l3.setTextureRect(cyfry[3]);
-        if(zlapane_>=40&&zlapane_<50)
-            l3.setTextureRect(cyfry[4]);
-        if(zlapane_==50)
-            l3.setTextureRect(cyfry[5]);
-        for(int j=9; j>=0; j--){
-            if(zlapane_%10==j){
-                l4.setTextureRect(cyfry[j]);
-            }
-        }
+
+    zlap_zest.setTexture(zl);
+    int x;
+
+    if(zlapane_>0&&zlapane_<=50&&ile_chmurek_<=0){
+        x=zlapane_;
+    }else if(ile_chmurek_>0&&ile_chmurek_<=50&&zestrzelony_<=0){
+        x=ile_chmurek_;
+    }else if(zestrzelony_>0&&zestrzelony_<=50){
+        x=zestrzelony_;
     }
-    if(zestrzelony_>0&&zestrzelony_<=50){
-        zlap_zest.setTexture(ze);
-        zlap_zest.setPosition(270,20);
-        if(zestrzelony_>0&&zestrzelony_<10)
-             l3.setTextureRect(cyfry[0]);
-        if(zestrzelony_>=10&&zestrzelony_<20)
-            l3.setTextureRect(cyfry[1]);
-        if(zestrzelony_>=20&&zestrzelony_<30)
-            l3.setTextureRect(cyfry[2]);
-        if(zestrzelony_>=30&&zestrzelony_<40)
-            l3.setTextureRect(cyfry[3]);
-        if(zestrzelony_>=40&&zestrzelony_<50)
-            l3.setTextureRect(cyfry[4]);
-        if(zestrzelony_==50)
-            l3.setTextureRect(cyfry[5]);
-        for(int j=9; j>=0; j--){
-            if(zestrzelony_%10==j){
-                l4.setTextureRect(cyfry[j]);
-            }
+
+
+    if(x>0&&x<10)
+         l3.setTextureRect(cyfry[0]);
+    if(x>=10&&x<20)
+        l3.setTextureRect(cyfry[1]);
+    if(x>=20&&x<30)
+        l3.setTextureRect(cyfry[2]);
+    if(x>=30&&x<40)
+        l3.setTextureRect(cyfry[3]);
+    if(x>=40&&x<50)
+        l3.setTextureRect(cyfry[4]);
+    if(x==50)
+        l3.setTextureRect(cyfry[5]);
+    for(int j=9; j>=0; j--){
+        if(x%10==j){
+            l4.setTextureRect(cyfry[j]);
         }
     }
 }
 
 void Postac::koniec_gry(sf::RenderWindow &window,std::vector<std::unique_ptr<sf::Sprite>> &czeresnia,sf::Texture &czer){
     auto guy_bounds = getGlobalBounds();
+
+    //std::cout<<"left = "<<guy_bounds.left<<", top = "<<guy_bounds.top<<std::endl;
+
     if(zycia_<=0){// jeśli życia się skończą to koniec gry
         std::cout<<"PRZEGRALES"<<std::endl;
         window.close();
+//std::cout<<"PRZEGRALES"<<std::endl;
     }
-    if(guy_bounds.top>720){
+    if(guy_bounds.top>27120){
+        std::cout<<"za nisko"<<std::endl;
         window.close();
     }
     if(zestrzelony_>=25){

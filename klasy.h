@@ -13,9 +13,7 @@ public:
         setPosition(position);
     }
     virtual std::string typ(){return typ_;}
-    //virtual void stop_drop()
     void drop(const sf::Time &e, int);
-    //friend void przyspieszaniee(float &v, int wzgledem);
 };
 
 class Good_Food : public Food{

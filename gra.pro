@@ -10,14 +10,14 @@ CONFIG(debug, debug|release){
     LIBS += -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-system -lsfml-window
 }
 SOURCES += \
-        icytower.cpp \
-        klasy.cpp \
+        chmurki_poziom_2.cpp \
+        jedzenie_poziom_1.cpp \
         main.cpp \
         postac.cpp \
         wrogowie_poziom_3.cpp
 
 HEADERS += \
-    icytower.h \
-    klasy.h \
+    chmurki_poziom_2.h \
+    jedzenie_poziom_1.h \
     postac.h \ \
     wrogowie_poziom_3.h

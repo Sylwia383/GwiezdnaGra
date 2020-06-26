@@ -1,17 +1,17 @@
-#include "icytower.h"
+#include "chmurki_poziom_2.h"
 
 
 void przyspieszaniee(float &v, int wzgledem){
-    if(wzgledem<100)
-        v=100;
-    if(wzgledem>=100 && wzgledem <200)
+    if(wzgledem<10)
         v=150;
-    if(wzgledem>=200 && wzgledem <300)
-        v=150;
-    if(wzgledem>=300 && wzgledem <400)
+    if(wzgledem>=10 && wzgledem <20)
         v=200;
-    if(wzgledem>=400){
+    if(wzgledem>=20 && wzgledem <30)
         v=250;
+    if(wzgledem>=30 && wzgledem <40)
+        v=300;
+    if(wzgledem>=40){
+        v=350;
     }
 }
 
@@ -34,7 +34,6 @@ void w_dol_i_w_boki::ruch(const sf::Time &e, int ile_kolizji){
     }
     przyspieszaniee(v_y_, ile_kolizji);
     move(v_x_*e.asSeconds(),v_y_*e.asSeconds());
-    std::cout<<"v_x: "<<v_x()<<std::endl;
 }
 
 

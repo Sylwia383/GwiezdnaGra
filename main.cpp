@@ -1,5 +1,5 @@
 #include "postac.h"
-#include <SFML/Audio.hpp>
+
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(460, 700), "Super gra");
@@ -122,7 +122,7 @@ int main() {
     std::vector<std::unique_ptr<sf::Sprite>> statek_i_czeresnia;
 
 
-//TLO
+//TŁO
     sf::Texture tlo1;
     if(!tlo1.loadFromFile("tekstury/sheett.png")) { return 1; }
     sf::Sprite tlo;
@@ -134,7 +134,7 @@ int main() {
     if(!tlo2.loadFromFile("tekstury/tlo.jpg")) { return 1; }
     sf::Sprite tloo;
     tloo.setTexture(tlo2);
-    tloo.setTextureRect(sf::IntRect(0,2580,460,700));
+    tloo.setTextureRect(sf::IntRect(0,6840,460,700));
     tloo.setPosition(0,0);
 
 
@@ -175,11 +175,23 @@ int main() {
     l4.setTextureRect(sf::IntRect(0,0,1,1));
 
 
+//KONIEC
+    sf::Texture wygrales;
+    if(!wygrales.loadFromFile("tekstury/koniec/wygrales.jpg")) { return 1; }
+    sf::Texture przegrales;
+    if(!przegrales.loadFromFile("tekstury/koniec/przegrales.jpg")) { return 1; }
+    sf::Sprite koniec;
+    koniec.setPosition(0,0);
+
+
 //MUZYKA
-    sf::Music music;
-        if (!music.openFromFile("muzyka/calaa1.ogg")){return 1;}
-        music.play();
-        music.setLoop(true);
+    sf::SoundBuffer music;
+        if (!music.loadFromFile("muzyka/calaa1.ogg")){return 1;}
+    sf::Sound sound;
+        sound.setBuffer(music);
+        sound.play();
+        sound.setLoop(true);
+
 
 // /// // /// // /// //
 
@@ -196,14 +208,14 @@ int main() {
         guy.texture_walk(elapsed);
         guy.walk(elapsed,window);
         guy.disappear_food(v_jedzonko,window);
-        guy.start_drop_food(elapsed,v_jedzonko); // kiedy postać coś osiągnie to zaczynają spadać (najlepiej żeby to było cos nieodwracalnego) może boola jakiegoś zrobić
+        guy.start_drop_food(elapsed,v_jedzonko);
         guy.start_icy_tower(elapsed,v_platform);
-        guy.start_wrogowie(elapsed,v_wrogowie,window,statek_i_czeresnia,stat,statek_z_G1,statek_z_G2,statek_z_G3,statek_z_G4,chmura);
+        guy.start_wrogowie(elapsed,v_wrogowie,statek_i_czeresnia,stat,statek_z_G1,statek_z_G2,statek_z_G3,statek_z_G4,chmura);
         guy.pocisk_start(elapsed,pociski,poci);
         guy.znikanie_wrogow_i_pociskow(v_wrogowie,window,strzelajacy,nie_strzelajacy,pociski);
         guy.przesuwajace_tlo(elapsed,tloo,tlo);
         guy.wyswieltanie_danych(zlapane_zestrzelone,l1,l2,l3,l4,zlapane,zestrzelone);
-        guy.koniec_gry(window,statek_i_czeresnia,czer);
+        guy.koniec_gry(elapsed,window,statek_i_czeresnia,czer,koniec,wygrales,przegrales,sound);
 
         for(auto &it : pociski){
             it->ruch(elapsed);
@@ -239,6 +251,7 @@ int main() {
         }
 
         window.draw(poczatek_tlo);
+        window.draw(koniec);
 
         window.display();
     }

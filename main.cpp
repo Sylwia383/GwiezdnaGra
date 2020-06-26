@@ -79,7 +79,7 @@ int main() {
     }
 
 
-// ICY TOWER
+// CHMURKI
     sf::Texture chmura;
     if(!chmura.loadFromFile("tekstury/chmura.png")) { return 1; }
     std::vector<std::unique_ptr<platformy>> v_platform;

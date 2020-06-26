@@ -1,0 +1,202 @@
+\hypertarget{class_postac}{}\doxysection{Dokumentacja klasy Postac}
+\label{class_postac}\index{Postac@{Postac}}
+
+
+{\ttfamily \#include $<$postac.\+h$>$}
+
+Diagram dziedziczenia dla Postac\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_postac}
+\end{center}
+\end{figure}
+\doxysubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_postac_a6466184f61a7789e1297134e268aa00f}{Postac}} (const sf\+::\+Texture \&texture, const sf\+::\+Vector2f \&position)
+\item 
+void \mbox{\hyperlink{class_postac_aff7f9555cef804dade91792944703a9c}{poczatek\+\_\+tla}} (const sf\+::\+Time \&e, sf\+::\+Render\+Window \&window, sf\+::\+Sprite \&poczatek, sf\+::\+Texture \&pocz1, sf\+::\+Texture \&pocz2, sf\+::\+Texture \&pocz3, sf\+::\+Texture \&G1, sf\+::\+Texture \&G2, sf\+::\+Texture \&G3, sf\+::\+Texture \&G4)
+\item 
+void \mbox{\hyperlink{class_postac_a3a4da608b9dd42d7e22a6ae8403c071a}{add\+\_\+bits\+\_\+of\+\_\+texture}} (sf\+::\+Int\+Rect)
+\item 
+void \mbox{\hyperlink{class_postac_a6ccb7b7ca6263157e6c85335a01e5e33}{texture\+\_\+walk}} (const sf\+::\+Time \&e)
+\item 
+void \mbox{\hyperlink{class_postac_a097c675d60378ca8f346d470b5a5fd0d}{walk}} (const sf\+::\+Time \&e, sf\+::\+Render\+Window \&window)
+\item 
+void \mbox{\hyperlink{class_postac_ab74ea35113a27c0224c3069d657531a2}{disappear\+\_\+food}} (std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_food}{Food}} $>$$>$ \&v\+\_\+jedzonko, sf\+::\+Render\+Window \&window)
+\item 
+void \mbox{\hyperlink{class_postac_a5335274a34ef85a3efda76b91640531f}{start\+\_\+drop\+\_\+food}} (const sf\+::\+Time \&e, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_food}{Food}} $>$$>$ \&v\+\_\+jedzonko)
+\item 
+void \mbox{\hyperlink{class_postac_a8c8f8cfb70a69c36c9528b48712a4f23}{start\+\_\+icy\+\_\+tower}} (const sf\+::\+Time \&e, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classplatformy}{platformy}} $>$$>$ \&\mbox{\hyperlink{classplatformy}{platformy}})
+\item 
+void \mbox{\hyperlink{class_postac_af00aea496f2be9153466abf8affc7c73}{start\+\_\+wrogowie}} (const sf\+::\+Time \&e, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_wrogowie}{Wrogowie}} $>$$>$ \&wrogowie, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ sf\+::\+Sprite $>$$>$ \&statek, sf\+::\+Texture \&stat, sf\+::\+Texture \&s\+G1, sf\+::\+Texture \&s\+G2, sf\+::\+Texture \&s\+G3, sf\+::\+Texture \&s\+G4, sf\+::\+Texture \&podloga)
+\item 
+void \mbox{\hyperlink{class_postac_aa2b3315b1d3e9c356e136881ef1fd561}{pocisk\+\_\+start}} (const sf\+::\+Time \&e, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_wrogowie}{Wrogowie}} $>$$>$ \&wektor, sf\+::\+Texture \&uff)
+\item 
+void \mbox{\hyperlink{class_postac_a3839f8f40056b85ff54ecb7b133373d8}{znikanie\+\_\+wrogow\+\_\+i\+\_\+pociskow}} (std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_wrogowie}{Wrogowie}} $>$ $>$ \&wektor, sf\+::\+Render\+Window \&window, sf\+::\+Texture \&tak, sf\+::\+Texture \&nie, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_wrogowie}{Wrogowie}} $>$$>$ \&wektor2)
+\item 
+void \mbox{\hyperlink{class_postac_ad36c49085cde06f46dbc4fcb95c1ef22}{przesuwajace\+\_\+tlo}} (const sf\+::\+Time \&e, sf\+::\+Sprite \&tloo, sf\+::\+Sprite \&tlo)
+\item 
+void \mbox{\hyperlink{class_postac_a1adea3df949a53f25961f5cefc57b008}{wyswieltanie\+\_\+danych}} (sf\+::\+Sprite \&zlap, sf\+::\+Sprite \&l1, sf\+::\+Sprite \&l2, sf\+::\+Sprite \&l3, sf\+::\+Sprite \&l4, sf\+::\+Texture \&zl, sf\+::\+Texture \&ze)
+\item 
+void \mbox{\hyperlink{class_postac_abb0e5c90d168db18336bb43002bda08e}{koniec\+\_\+gry}} (const sf\+::\+Time \&e, sf\+::\+Render\+Window \&window, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ sf\+::\+Sprite $>$$>$ \&czeresnia, sf\+::\+Texture \&tak, sf\+::\+Sprite \&koniec, sf\+::\+Texture \&wygral, sf\+::\+Texture \&przegral, sf\+::\+Sound \&sound)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+
+
+Definicja w linii 12 pliku postac.\+h.
+
+
+
+\doxysubsection{Dokumentacja konstruktora i destruktora}
+\mbox{\Hypertarget{class_postac_a6466184f61a7789e1297134e268aa00f}\label{class_postac_a6466184f61a7789e1297134e268aa00f}} 
+\index{Postac@{Postac}!Postac@{Postac}}
+\index{Postac@{Postac}!Postac@{Postac}}
+\doxysubsubsection{\texorpdfstring{Postac()}{Postac()}}
+{\footnotesize\ttfamily Postac\+::\+Postac (\begin{DoxyParamCaption}\item[{const sf\+::\+Texture \&}]{texture,  }\item[{const sf\+::\+Vector2f \&}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definicja w linii 37 pliku postac.\+h.
+
+
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{class_postac_a3a4da608b9dd42d7e22a6ae8403c071a}\label{class_postac_a3a4da608b9dd42d7e22a6ae8403c071a}} 
+\index{Postac@{Postac}!add\_bits\_of\_texture@{add\_bits\_of\_texture}}
+\index{add\_bits\_of\_texture@{add\_bits\_of\_texture}!Postac@{Postac}}
+\doxysubsubsection{\texorpdfstring{add\_bits\_of\_texture()}{add\_bits\_of\_texture()}}
+{\footnotesize\ttfamily void Postac\+::add\+\_\+bits\+\_\+of\+\_\+texture (\begin{DoxyParamCaption}\item[{sf\+::\+Int\+Rect}]{xxx }\end{DoxyParamCaption})}
+
+
+
+Definicja w linii 52 pliku postac.\+cpp.
+
+\mbox{\Hypertarget{class_postac_ab74ea35113a27c0224c3069d657531a2}\label{class_postac_ab74ea35113a27c0224c3069d657531a2}} 
+\index{Postac@{Postac}!disappear\_food@{disappear\_food}}
+\index{disappear\_food@{disappear\_food}!Postac@{Postac}}
+\doxysubsubsection{\texorpdfstring{disappear\_food()}{disappear\_food()}}
+{\footnotesize\ttfamily void Postac\+::disappear\+\_\+food (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_food}{Food}} $>$$>$ \&}]{v\+\_\+jedzonko,  }\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Definicja w linii 138 pliku postac.\+cpp.
+
+\mbox{\Hypertarget{class_postac_abb0e5c90d168db18336bb43002bda08e}\label{class_postac_abb0e5c90d168db18336bb43002bda08e}} 
+\index{Postac@{Postac}!koniec\_gry@{koniec\_gry}}
+\index{koniec\_gry@{koniec\_gry}!Postac@{Postac}}
+\doxysubsubsection{\texorpdfstring{koniec\_gry()}{koniec\_gry()}}
+{\footnotesize\ttfamily void Postac\+::koniec\+\_\+gry (\begin{DoxyParamCaption}\item[{const sf\+::\+Time \&}]{e,  }\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ sf\+::\+Sprite $>$$>$ \&}]{czeresnia,  }\item[{sf\+::\+Texture \&}]{tak,  }\item[{sf\+::\+Sprite \&}]{koniec,  }\item[{sf\+::\+Texture \&}]{wygral,  }\item[{sf\+::\+Texture \&}]{przegral,  }\item[{sf\+::\+Sound \&}]{sound }\end{DoxyParamCaption})}
+
+
+
+Definicja w linii 401 pliku postac.\+cpp.
+
+\mbox{\Hypertarget{class_postac_aa2b3315b1d3e9c356e136881ef1fd561}\label{class_postac_aa2b3315b1d3e9c356e136881ef1fd561}} 
+\index{Postac@{Postac}!pocisk\_start@{pocisk\_start}}
+\index{pocisk\_start@{pocisk\_start}!Postac@{Postac}}
+\doxysubsubsection{\texorpdfstring{pocisk\_start()}{pocisk\_start()}}
+{\footnotesize\ttfamily void Postac\+::pocisk\+\_\+start (\begin{DoxyParamCaption}\item[{const sf\+::\+Time \&}]{e,  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_wrogowie}{Wrogowie}} $>$$>$ \&}]{wektor,  }\item[{sf\+::\+Texture \&}]{uff }\end{DoxyParamCaption})}
+
+
+
+Definicja w linii 272 pliku postac.\+cpp.
+
+\mbox{\Hypertarget{class_postac_aff7f9555cef804dade91792944703a9c}\label{class_postac_aff7f9555cef804dade91792944703a9c}} 
+\index{Postac@{Postac}!poczatek\_tla@{poczatek\_tla}}
+\index{poczatek\_tla@{poczatek\_tla}!Postac@{Postac}}
+\doxysubsubsection{\texorpdfstring{poczatek\_tla()}{poczatek\_tla()}}
+{\footnotesize\ttfamily void Postac\+::poczatek\+\_\+tla (\begin{DoxyParamCaption}\item[{const sf\+::\+Time \&}]{e,  }\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{sf\+::\+Sprite \&}]{poczatek,  }\item[{sf\+::\+Texture \&}]{pocz1,  }\item[{sf\+::\+Texture \&}]{pocz2,  }\item[{sf\+::\+Texture \&}]{pocz3,  }\item[{sf\+::\+Texture \&}]{G1,  }\item[{sf\+::\+Texture \&}]{G2,  }\item[{sf\+::\+Texture \&}]{G3,  }\item[{sf\+::\+Texture \&}]{G4 }\end{DoxyParamCaption})}
+
+
+
+Definicja w linii 4 pliku postac.\+cpp.
+
+\mbox{\Hypertarget{class_postac_ad36c49085cde06f46dbc4fcb95c1ef22}\label{class_postac_ad36c49085cde06f46dbc4fcb95c1ef22}} 
+\index{Postac@{Postac}!przesuwajace\_tlo@{przesuwajace\_tlo}}
+\index{przesuwajace\_tlo@{przesuwajace\_tlo}!Postac@{Postac}}
+\doxysubsubsection{\texorpdfstring{przesuwajace\_tlo()}{przesuwajace\_tlo()}}
+{\footnotesize\ttfamily void Postac\+::przesuwajace\+\_\+tlo (\begin{DoxyParamCaption}\item[{const sf\+::\+Time \&}]{e,  }\item[{sf\+::\+Sprite \&}]{tloo,  }\item[{sf\+::\+Sprite \&}]{tlo }\end{DoxyParamCaption})}
+
+
+
+Definicja w linii 327 pliku postac.\+cpp.
+
+\mbox{\Hypertarget{class_postac_a5335274a34ef85a3efda76b91640531f}\label{class_postac_a5335274a34ef85a3efda76b91640531f}} 
+\index{Postac@{Postac}!start\_drop\_food@{start\_drop\_food}}
+\index{start\_drop\_food@{start\_drop\_food}!Postac@{Postac}}
+\doxysubsubsection{\texorpdfstring{start\_drop\_food()}{start\_drop\_food()}}
+{\footnotesize\ttfamily void Postac\+::start\+\_\+drop\+\_\+food (\begin{DoxyParamCaption}\item[{const sf\+::\+Time \&}]{e,  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_food}{Food}} $>$$>$ \&}]{v\+\_\+jedzonko }\end{DoxyParamCaption})}
+
+
+
+Definicja w linii 157 pliku postac.\+cpp.
+
+\mbox{\Hypertarget{class_postac_a8c8f8cfb70a69c36c9528b48712a4f23}\label{class_postac_a8c8f8cfb70a69c36c9528b48712a4f23}} 
+\index{Postac@{Postac}!start\_icy\_tower@{start\_icy\_tower}}
+\index{start\_icy\_tower@{start\_icy\_tower}!Postac@{Postac}}
+\doxysubsubsection{\texorpdfstring{start\_icy\_tower()}{start\_icy\_tower()}}
+{\footnotesize\ttfamily void Postac\+::start\+\_\+icy\+\_\+tower (\begin{DoxyParamCaption}\item[{const sf\+::\+Time \&}]{e,  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classplatformy}{platformy}} $>$$>$ \&}]{platformy }\end{DoxyParamCaption})}
+
+
+
+Definicja w linii 180 pliku postac.\+cpp.
+
+\mbox{\Hypertarget{class_postac_af00aea496f2be9153466abf8affc7c73}\label{class_postac_af00aea496f2be9153466abf8affc7c73}} 
+\index{Postac@{Postac}!start\_wrogowie@{start\_wrogowie}}
+\index{start\_wrogowie@{start\_wrogowie}!Postac@{Postac}}
+\doxysubsubsection{\texorpdfstring{start\_wrogowie()}{start\_wrogowie()}}
+{\footnotesize\ttfamily void Postac\+::start\+\_\+wrogowie (\begin{DoxyParamCaption}\item[{const sf\+::\+Time \&}]{e,  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_wrogowie}{Wrogowie}} $>$$>$ \&}]{wrogowie,  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ sf\+::\+Sprite $>$$>$ \&}]{statek,  }\item[{sf\+::\+Texture \&}]{stat,  }\item[{sf\+::\+Texture \&}]{s\+G1,  }\item[{sf\+::\+Texture \&}]{s\+G2,  }\item[{sf\+::\+Texture \&}]{s\+G3,  }\item[{sf\+::\+Texture \&}]{s\+G4,  }\item[{sf\+::\+Texture \&}]{podloga }\end{DoxyParamCaption})}
+
+
+
+Definicja w linii 228 pliku postac.\+cpp.
+
+\mbox{\Hypertarget{class_postac_a6ccb7b7ca6263157e6c85335a01e5e33}\label{class_postac_a6ccb7b7ca6263157e6c85335a01e5e33}} 
+\index{Postac@{Postac}!texture\_walk@{texture\_walk}}
+\index{texture\_walk@{texture\_walk}!Postac@{Postac}}
+\doxysubsubsection{\texorpdfstring{texture\_walk()}{texture\_walk()}}
+{\footnotesize\ttfamily void Postac\+::texture\+\_\+walk (\begin{DoxyParamCaption}\item[{const sf\+::\+Time \&}]{e }\end{DoxyParamCaption})}
+
+
+
+Definicja w linii 58 pliku postac.\+cpp.
+
+\mbox{\Hypertarget{class_postac_a097c675d60378ca8f346d470b5a5fd0d}\label{class_postac_a097c675d60378ca8f346d470b5a5fd0d}} 
+\index{Postac@{Postac}!walk@{walk}}
+\index{walk@{walk}!Postac@{Postac}}
+\doxysubsubsection{\texorpdfstring{walk()}{walk()}}
+{\footnotesize\ttfamily void Postac\+::walk (\begin{DoxyParamCaption}\item[{const sf\+::\+Time \&}]{e,  }\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Definicja w linii 93 pliku postac.\+cpp.
+
+\mbox{\Hypertarget{class_postac_a1adea3df949a53f25961f5cefc57b008}\label{class_postac_a1adea3df949a53f25961f5cefc57b008}} 
+\index{Postac@{Postac}!wyswieltanie\_danych@{wyswieltanie\_danych}}
+\index{wyswieltanie\_danych@{wyswieltanie\_danych}!Postac@{Postac}}
+\doxysubsubsection{\texorpdfstring{wyswieltanie\_danych()}{wyswieltanie\_danych()}}
+{\footnotesize\ttfamily void Postac\+::wyswieltanie\+\_\+danych (\begin{DoxyParamCaption}\item[{sf\+::\+Sprite \&}]{zlap,  }\item[{sf\+::\+Sprite \&}]{l1,  }\item[{sf\+::\+Sprite \&}]{l2,  }\item[{sf\+::\+Sprite \&}]{l3,  }\item[{sf\+::\+Sprite \&}]{l4,  }\item[{sf\+::\+Texture \&}]{zl,  }\item[{sf\+::\+Texture \&}]{ze }\end{DoxyParamCaption})}
+
+
+
+Definicja w linii 344 pliku postac.\+cpp.
+
+\mbox{\Hypertarget{class_postac_a3839f8f40056b85ff54ecb7b133373d8}\label{class_postac_a3839f8f40056b85ff54ecb7b133373d8}} 
+\index{Postac@{Postac}!znikanie\_wrogow\_i\_pociskow@{znikanie\_wrogow\_i\_pociskow}}
+\index{znikanie\_wrogow\_i\_pociskow@{znikanie\_wrogow\_i\_pociskow}!Postac@{Postac}}
+\doxysubsubsection{\texorpdfstring{znikanie\_wrogow\_i\_pociskow()}{znikanie\_wrogow\_i\_pociskow()}}
+{\footnotesize\ttfamily void Postac\+::znikanie\+\_\+wrogow\+\_\+i\+\_\+pociskow (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_wrogowie}{Wrogowie}} $>$ $>$ \&}]{wektor,  }\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{sf\+::\+Texture \&}]{tak,  }\item[{sf\+::\+Texture \&}]{nie,  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_wrogowie}{Wrogowie}} $>$$>$ \&}]{wektor2 }\end{DoxyParamCaption})}
+
+
+
+Definicja w linii 289 pliku postac.\+cpp.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+S\+Tu\+D\+Ia/2 S\+E\+M\+E\+S\+T\+R/\+P\+Si\+O/kod\+\_\+gry/\mbox{\hyperlink{postac_8h}{postac.\+h}}\item 
+D\+:/\+S\+Tu\+D\+Ia/2 S\+E\+M\+E\+S\+T\+R/\+P\+Si\+O/kod\+\_\+gry/\mbox{\hyperlink{postac_8cpp}{postac.\+cpp}}\end{DoxyCompactItemize}

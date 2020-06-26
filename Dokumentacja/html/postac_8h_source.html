@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gwiezdna_Gra: Plik źródłowy D:/STuDIa/2 SEMESTR/PSiO/kod_gry/postac.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="nie_strzelajacy.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Gwiezdna_Gra
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('postac_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">postac.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="postac_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;SFML/Window.hpp&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;SFML/Audio.hpp&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="jedzenie__poziom__1_8h.html">jedzenie_poziom_1.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="chmurki__poziom__2_8h.html">chmurki_poziom_2.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="wrogowie__poziom__3_8h.html">wrogowie_poziom_3.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_postac.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_postac.html">Postac</a> : <span class="keyword">public</span> sf::Sprite{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">float</span> czas_poczatku=0;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">bool</span> pocz1_=0,pocz2_=0,pocz3_=0;<span class="comment">//która tekstura początkowa</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">bool</span> g1_=0, g2_=0, g3_=0, g4_=0;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    std::vector&lt;sf::IntRect&gt; bits_of_texture;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">float</span> time_animacji_guya_;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">float</span> czas_tla_=0;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">float</span> v_x_;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">float</span> v_y_;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> a_y_ = 0;<span class="comment">//przyspieszenie grawitacyjne</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">int</span> zlapane_=0;<span class="comment">//do jedzenia</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">int</span> ile_chmurek_=0;<span class="comment">//do icy tower</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">float</span> czas_chmurek_=0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">int</span> zycia_=10;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">bool</span> start_drop_food_=0;<span class="comment">//jak if sie wykona to zacznyna spadać jedzenie</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">bool</span> start_icy_tower_=0;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">bool</span> start_wrogowie_=0;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">bool</span> w_statku_=0;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">float</span> czas_pocisku_=0;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">bool</span> kolizja_z_czeresnia_=0;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">int</span> zestrzelony_=-1;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> przesuwanie_tla_tloo_=6840;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">int</span> przesuwanie_tla_tlo_=550;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">float</span> czas_konca_=0;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_postac.html#a6466184f61a7789e1297134e268aa00f">   37</a></span>&#160;    <a class="code" href="class_postac.html#a6466184f61a7789e1297134e268aa00f">Postac</a>(<span class="keyword">const</span> sf::Texture &amp;texture, <span class="keyword">const</span> sf::Vector2f &amp;position) : sf::Sprite(texture){</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        setPosition(position);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_postac.html#aff7f9555cef804dade91792944703a9c">poczatek_tla</a>(<span class="keyword">const</span> sf::Time &amp;e,sf::RenderWindow &amp;window,sf::Sprite &amp;poczatek,sf::Texture &amp;pocz1,sf::Texture &amp;pocz2,sf::Texture &amp;pocz3,sf::Texture &amp;G1,sf::Texture &amp;G2,sf::Texture &amp;G3,sf::Texture &amp;G4);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_postac.html#a3a4da608b9dd42d7e22a6ae8403c071a">add_bits_of_texture</a>(sf::IntRect);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_postac.html#a6ccb7b7ca6263157e6c85335a01e5e33">texture_walk</a>(<span class="keyword">const</span> sf::Time &amp;e);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_postac.html#a097c675d60378ca8f346d470b5a5fd0d">walk</a>(<span class="keyword">const</span> sf::Time &amp;e,sf::RenderWindow &amp;window);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_postac.html#ab74ea35113a27c0224c3069d657531a2">disappear_food</a>(std::vector&lt;std::unique_ptr&lt;Food&gt;&gt; &amp;v_jedzonko,sf::RenderWindow &amp;window);<span class="comment">//tutaj odejmowanie żyć i złapane++</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_postac.html#a5335274a34ef85a3efda76b91640531f">start_drop_food</a>(<span class="keyword">const</span> sf::Time &amp;e, std::vector&lt;std::unique_ptr&lt;Food&gt;&gt; &amp;v_jedzonko);<span class="comment">//tuyaj większa prędkość wzależności od wysokości</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_postac.html#a8c8f8cfb70a69c36c9528b48712a4f23">start_icy_tower</a>(<span class="keyword">const</span> sf::Time &amp;e, std::vector&lt;std::unique_ptr&lt;platformy&gt;&gt; &amp; <a class="code" href="classplatformy.html">platformy</a>);<span class="comment">//,std::vector&lt;std::unique_ptr&lt;Food&gt;&gt; &amp;jo);</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_postac.html#af00aea496f2be9153466abf8affc7c73">start_wrogowie</a>(<span class="keyword">const</span> sf::Time &amp;e, std::vector&lt;std::unique_ptr&lt;Wrogowie&gt;&gt; &amp;wrogowie, std::vector&lt;std::unique_ptr&lt;sf::Sprite&gt;&gt; &amp;statek,sf::Texture &amp;stat,sf::Texture &amp;sG1,sf::Texture &amp;sG2,sf::Texture &amp;sG3,sf::Texture &amp;sG4,sf::Texture &amp;podloga);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_postac.html#aa2b3315b1d3e9c356e136881ef1fd561">pocisk_start</a>(<span class="keyword">const</span> sf::Time &amp;e,std::vector&lt;std::unique_ptr&lt;Wrogowie&gt;&gt; &amp;wektor,sf::Texture &amp;uff);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_postac.html#a3839f8f40056b85ff54ecb7b133373d8">znikanie_wrogow_i_pociskow</a>(std::vector&lt;std::unique_ptr&lt;Wrogowie&gt; &gt; &amp;wektor, sf::RenderWindow &amp;window,sf::Texture &amp;tak,sf::Texture &amp;nie,std::vector&lt;std::unique_ptr&lt;Wrogowie&gt;&gt; &amp;wektor2);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_postac.html#ad36c49085cde06f46dbc4fcb95c1ef22">przesuwajace_tlo</a>(<span class="keyword">const</span> sf::Time &amp;e,sf::Sprite &amp;tloo,sf::Sprite &amp;tlo);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_postac.html#a1adea3df949a53f25961f5cefc57b008">wyswieltanie_danych</a>(sf::Sprite &amp;zlap,sf::Sprite &amp;l1,sf::Sprite &amp;l2,sf::Sprite &amp;l3,sf::Sprite &amp;l4,sf::Texture &amp;zl,sf::Texture &amp;ze);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_postac.html#abb0e5c90d168db18336bb43002bda08e">koniec_gry</a>(<span class="keyword">const</span> sf::Time &amp;e,sf::RenderWindow &amp;window,std::vector&lt;std::unique_ptr&lt;sf::Sprite&gt;&gt; &amp;czeresnia,sf::Texture &amp;tak,sf::Sprite &amp;koniec,sf::Texture &amp;wygral,sf::Texture &amp;przegral,sf::Sound &amp;sound);<span class="comment">//,sf::SoundBuffer &amp;win,sf::SoundBuffer &amp;lose);//,sf::Sound &amp;s_przeg);</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="awrogowie__poziom__3_8h_html"><div class="ttname"><a href="wrogowie__poziom__3_8h.html">wrogowie_poziom_3.h</a></div></div>
+<div class="ttc" id="aclass_postac_html_a5335274a34ef85a3efda76b91640531f"><div class="ttname"><a href="class_postac.html#a5335274a34ef85a3efda76b91640531f">Postac::start_drop_food</a></div><div class="ttdeci">void start_drop_food(const sf::Time &amp;e, std::vector&lt; std::unique_ptr&lt; Food &gt;&gt; &amp;v_jedzonko)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00157">postac.cpp:157</a></div></div>
+<div class="ttc" id="aclass_postac_html_aff7f9555cef804dade91792944703a9c"><div class="ttname"><a href="class_postac.html#aff7f9555cef804dade91792944703a9c">Postac::poczatek_tla</a></div><div class="ttdeci">void poczatek_tla(const sf::Time &amp;e, sf::RenderWindow &amp;window, sf::Sprite &amp;poczatek, sf::Texture &amp;pocz1, sf::Texture &amp;pocz2, sf::Texture &amp;pocz3, sf::Texture &amp;G1, sf::Texture &amp;G2, sf::Texture &amp;G3, sf::Texture &amp;G4)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00004">postac.cpp:4</a></div></div>
+<div class="ttc" id="aclass_postac_html_ab74ea35113a27c0224c3069d657531a2"><div class="ttname"><a href="class_postac.html#ab74ea35113a27c0224c3069d657531a2">Postac::disappear_food</a></div><div class="ttdeci">void disappear_food(std::vector&lt; std::unique_ptr&lt; Food &gt;&gt; &amp;v_jedzonko, sf::RenderWindow &amp;window)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00138">postac.cpp:138</a></div></div>
+<div class="ttc" id="ajedzenie__poziom__1_8h_html"><div class="ttname"><a href="jedzenie__poziom__1_8h.html">jedzenie_poziom_1.h</a></div></div>
+<div class="ttc" id="aclass_postac_html_a3a4da608b9dd42d7e22a6ae8403c071a"><div class="ttname"><a href="class_postac.html#a3a4da608b9dd42d7e22a6ae8403c071a">Postac::add_bits_of_texture</a></div><div class="ttdeci">void add_bits_of_texture(sf::IntRect)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00052">postac.cpp:52</a></div></div>
+<div class="ttc" id="aclass_postac_html_a6466184f61a7789e1297134e268aa00f"><div class="ttname"><a href="class_postac.html#a6466184f61a7789e1297134e268aa00f">Postac::Postac</a></div><div class="ttdeci">Postac(const sf::Texture &amp;texture, const sf::Vector2f &amp;position)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8h_source.html#l00037">postac.h:37</a></div></div>
+<div class="ttc" id="aclass_postac_html_a8c8f8cfb70a69c36c9528b48712a4f23"><div class="ttname"><a href="class_postac.html#a8c8f8cfb70a69c36c9528b48712a4f23">Postac::start_icy_tower</a></div><div class="ttdeci">void start_icy_tower(const sf::Time &amp;e, std::vector&lt; std::unique_ptr&lt; platformy &gt;&gt; &amp;platformy)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00180">postac.cpp:180</a></div></div>
+<div class="ttc" id="aclass_postac_html_abb0e5c90d168db18336bb43002bda08e"><div class="ttname"><a href="class_postac.html#abb0e5c90d168db18336bb43002bda08e">Postac::koniec_gry</a></div><div class="ttdeci">void koniec_gry(const sf::Time &amp;e, sf::RenderWindow &amp;window, std::vector&lt; std::unique_ptr&lt; sf::Sprite &gt;&gt; &amp;czeresnia, sf::Texture &amp;tak, sf::Sprite &amp;koniec, sf::Texture &amp;wygral, sf::Texture &amp;przegral, sf::Sound &amp;sound)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00401">postac.cpp:401</a></div></div>
+<div class="ttc" id="aclass_postac_html"><div class="ttname"><a href="class_postac.html">Postac</a></div><div class="ttdef"><b>Definition:</b> <a href="postac_8h_source.html#l00012">postac.h:12</a></div></div>
+<div class="ttc" id="aclass_postac_html_af00aea496f2be9153466abf8affc7c73"><div class="ttname"><a href="class_postac.html#af00aea496f2be9153466abf8affc7c73">Postac::start_wrogowie</a></div><div class="ttdeci">void start_wrogowie(const sf::Time &amp;e, std::vector&lt; std::unique_ptr&lt; Wrogowie &gt;&gt; &amp;wrogowie, std::vector&lt; std::unique_ptr&lt; sf::Sprite &gt;&gt; &amp;statek, sf::Texture &amp;stat, sf::Texture &amp;sG1, sf::Texture &amp;sG2, sf::Texture &amp;sG3, sf::Texture &amp;sG4, sf::Texture &amp;podloga)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00228">postac.cpp:228</a></div></div>
+<div class="ttc" id="aclass_postac_html_aa2b3315b1d3e9c356e136881ef1fd561"><div class="ttname"><a href="class_postac.html#aa2b3315b1d3e9c356e136881ef1fd561">Postac::pocisk_start</a></div><div class="ttdeci">void pocisk_start(const sf::Time &amp;e, std::vector&lt; std::unique_ptr&lt; Wrogowie &gt;&gt; &amp;wektor, sf::Texture &amp;uff)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00272">postac.cpp:272</a></div></div>
+<div class="ttc" id="achmurki__poziom__2_8h_html"><div class="ttname"><a href="chmurki__poziom__2_8h.html">chmurki_poziom_2.h</a></div></div>
+<div class="ttc" id="aclass_postac_html_a097c675d60378ca8f346d470b5a5fd0d"><div class="ttname"><a href="class_postac.html#a097c675d60378ca8f346d470b5a5fd0d">Postac::walk</a></div><div class="ttdeci">void walk(const sf::Time &amp;e, sf::RenderWindow &amp;window)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00093">postac.cpp:93</a></div></div>
+<div class="ttc" id="aclass_postac_html_ad36c49085cde06f46dbc4fcb95c1ef22"><div class="ttname"><a href="class_postac.html#ad36c49085cde06f46dbc4fcb95c1ef22">Postac::przesuwajace_tlo</a></div><div class="ttdeci">void przesuwajace_tlo(const sf::Time &amp;e, sf::Sprite &amp;tloo, sf::Sprite &amp;tlo)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00327">postac.cpp:327</a></div></div>
+<div class="ttc" id="aclassplatformy_html"><div class="ttname"><a href="classplatformy.html">platformy</a></div><div class="ttdef"><b>Definition:</b> <a href="chmurki__poziom__2_8h_source.html#l00007">chmurki_poziom_2.h:7</a></div></div>
+<div class="ttc" id="aclass_postac_html_a6ccb7b7ca6263157e6c85335a01e5e33"><div class="ttname"><a href="class_postac.html#a6ccb7b7ca6263157e6c85335a01e5e33">Postac::texture_walk</a></div><div class="ttdeci">void texture_walk(const sf::Time &amp;e)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00058">postac.cpp:58</a></div></div>
+<div class="ttc" id="aclass_postac_html_a3839f8f40056b85ff54ecb7b133373d8"><div class="ttname"><a href="class_postac.html#a3839f8f40056b85ff54ecb7b133373d8">Postac::znikanie_wrogow_i_pociskow</a></div><div class="ttdeci">void znikanie_wrogow_i_pociskow(std::vector&lt; std::unique_ptr&lt; Wrogowie &gt; &gt; &amp;wektor, sf::RenderWindow &amp;window, sf::Texture &amp;tak, sf::Texture &amp;nie, std::vector&lt; std::unique_ptr&lt; Wrogowie &gt;&gt; &amp;wektor2)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00289">postac.cpp:289</a></div></div>
+<div class="ttc" id="aclass_postac_html_a1adea3df949a53f25961f5cefc57b008"><div class="ttname"><a href="class_postac.html#a1adea3df949a53f25961f5cefc57b008">Postac::wyswieltanie_danych</a></div><div class="ttdeci">void wyswieltanie_danych(sf::Sprite &amp;zlap, sf::Sprite &amp;l1, sf::Sprite &amp;l2, sf::Sprite &amp;l3, sf::Sprite &amp;l4, sf::Texture &amp;zl, sf::Texture &amp;ze)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00344">postac.cpp:344</a></div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_c5dabd5fc8661a4f396ab56ff208c51c.html">kod_gry</a></li><li class="navelem"><a class="el" href="postac_8h.html">postac.h</a></li>
+    <li class="footer">Wygenerowano przez
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
+  </ul>
+</div>
+</body>
+</html>

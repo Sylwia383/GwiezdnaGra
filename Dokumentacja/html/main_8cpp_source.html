@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gwiezdna_Gra: Plik źródłowy D:/STuDIa/2 SEMESTR/PSiO/kod_gry/main.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="nie_strzelajacy.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Gwiezdna_Gra
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">main.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="main_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="postac_8h.html">postac.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">    4</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    sf::RenderWindow window(sf::VideoMode(460, 700), <span class="stringliteral">&quot;Super gra&quot;</span>);</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    sf::Clock zegar;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//POCZĄTEK</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    sf::Texture pocz1;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordflow">if</span>(!pocz1.loadFromFile(<span class="stringliteral">&quot;tekstury/poczatek/C1.jpg&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    sf::Texture pocz2;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordflow">if</span>(!pocz2.loadFromFile(<span class="stringliteral">&quot;tekstury/poczatek/C2.jpg&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    sf::Texture pocz3;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">if</span>(!pocz3.loadFromFile(<span class="stringliteral">&quot;tekstury/poczatek/C3.jpg&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    sf::Sprite poczatek_tlo;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    poczatek_tlo.setPosition(0,0);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">//POSTAĆ</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    sf::Texture G1;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">if</span>(!G1.loadFromFile(<span class="stringliteral">&quot;tekstury/Postac/character_femaleAdventurer_sheet.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    sf::Texture G2;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">if</span>(!G2.loadFromFile(<span class="stringliteral">&quot;tekstury/Postac/character_femalePerson_sheet.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    sf::Texture G3;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">if</span>(!G3.loadFromFile(<span class="stringliteral">&quot;tekstury/Postac/character_malePerson_sheet.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    sf::Texture G4;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">if</span>(!G4.loadFromFile(<span class="stringliteral">&quot;tekstury/Postac/character_maleAdventurer_sheet.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="class_postac.html">Postac</a> guy(G1,sf::Vector2f(190,200));</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    guy.<a class="code" href="class_postac.html#a3a4da608b9dd42d7e22a6ae8403c071a">add_bits_of_texture</a>(sf::IntRect(16,23,64,106));</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    guy.<a class="code" href="class_postac.html#a3a4da608b9dd42d7e22a6ae8403c071a">add_bits_of_texture</a>(sf::IntRect(300,535,65,104));</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    guy.<a class="code" href="class_postac.html#a3a4da608b9dd42d7e22a6ae8403c071a">add_bits_of_texture</a>(sf::IntRect(390,535,77,104));</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    guy.<a class="code" href="class_postac.html#a3a4da608b9dd42d7e22a6ae8403c071a">add_bits_of_texture</a>(sf::IntRect(491,535,67,104));</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    guy.<a class="code" href="class_postac.html#a3a4da608b9dd42d7e22a6ae8403c071a">add_bits_of_texture</a>(sf::IntRect(590,535,64,104));</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">//POSTAĆ W RAKIECIE</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    sf::Texture statek_z_G1;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">if</span>(!statek_z_G1.loadFromFile(<span class="stringliteral">&quot;tekstury/Postac/Statek/statekG1.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    sf::Texture statek_z_G2;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span>(!statek_z_G2.loadFromFile(<span class="stringliteral">&quot;tekstury/Postac/Statek/statekG2.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    sf::Texture statek_z_G3;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">if</span>(!statek_z_G3.loadFromFile(<span class="stringliteral">&quot;tekstury/Postac/Statek/statekG3.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    sf::Texture statek_z_G4;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">if</span>(!statek_z_G4.loadFromFile(<span class="stringliteral">&quot;tekstury/Postac/Statek/statekG4.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">//TEKSTURY JEDZENIA</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    std::vector&lt;sf::Texture&gt; tekstury_jedenia(15); <span class="comment">//wektor tekstur jedzenia</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span>(!tekstury_jedenia[0].loadFromFile(<span class="stringliteral">&quot;tekstury/OKjedzenie/cherry.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">if</span>(!tekstury_jedenia[1].loadFromFile(<span class="stringliteral">&quot;tekstury/OKjedzenie/burger_SE.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span>(!tekstury_jedenia[2].loadFromFile(<span class="stringliteral">&quot;tekstury/OKjedzenie/cupcake_NE.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span>(!tekstury_jedenia[3].loadFromFile(<span class="stringliteral">&quot;tekstury/OKjedzenie/donutSprinkles_SW.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">if</span>(!tekstury_jedenia[4].loadFromFile(<span class="stringliteral">&quot;tekstury/OKjedzenie/fries_SW.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span>(!tekstury_jedenia[5].loadFromFile(<span class="stringliteral">&quot;tekstury/OKjedzenie/iceCream_SE.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">if</span>(!tekstury_jedenia[6].loadFromFile(<span class="stringliteral">&quot;tekstury/OKjedzenie/loaf_NW.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">if</span>(!tekstury_jedenia[7].loadFromFile(<span class="stringliteral">&quot;tekstury/OKjedzenie/pizza_NW.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span>(!tekstury_jedenia[8].loadFromFile(<span class="stringliteral">&quot;tekstury/OKjedzenie/plateSauerkraut_NW.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">if</span>(!tekstury_jedenia[9].loadFromFile(<span class="stringliteral">&quot;tekstury/OKjedzenie/sub_SE.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">if</span>(!tekstury_jedenia[10].loadFromFile(<span class="stringliteral">&quot;tekstury/OKjedzenie/sundae_SE.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">if</span>(!tekstury_jedenia[11].loadFromFile(<span class="stringliteral">&quot;tekstury/ZLEjedzenie/pet.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">if</span>(!tekstury_jedenia[12].loadFromFile(<span class="stringliteral">&quot;tekstury/ZLEjedzenie/zubrowka.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">if</span>(!tekstury_jedenia[13].loadFromFile(<span class="stringliteral">&quot;tekstury/ZLEjedzenie/fryingPan_NE.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">if</span>(!tekstury_jedenia[14].loadFromFile(<span class="stringliteral">&quot;tekstury/ZLEjedzenie/cookingKnife_NW.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">// WEKTOR JEDZENIA</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    sf::Vector2f pozycja(300,0);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    std::vector&lt;std::unique_ptr&lt;Food&gt;&gt; v_jedzonko;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;90; i++){</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">int</span> ktora_klasa = std::rand()%4;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">if</span>(ktora_klasa==1 || ktora_klasa==2 || ktora_klasa==3)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            v_jedzonko.emplace_back(std::make_unique&lt;Good_Food&gt;(tekstury_jedenia[rand()%11],sf::Vector2f((std::rand() % (window.getSize().x -200))+70,-120)));</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(ktora_klasa==0)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            v_jedzonko.emplace_back(std::make_unique&lt;Bad_Food&gt;(tekstury_jedenia[(rand()%4)+11],sf::Vector2f((std::rand() % (window.getSize().x -200))+70,-120)));</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">// ICY TOWER</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    sf::Texture chmura;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">if</span>(!chmura.loadFromFile(<span class="stringliteral">&quot;tekstury/chmura.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    std::vector&lt;std::unique_ptr&lt;platformy&gt;&gt; v_platform;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;100; i++){</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordtype">int</span> ktora_platforma = std::rand()%3;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">if</span>(ktora_platforma==1 || ktora_platforma==2)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            v_platform.emplace_back(std::make_unique&lt;w_dol&gt;(chmura,sf::Vector2f((std::rand() % (window.getSize().x -200))+50,-120)));</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(ktora_platforma==0)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            v_platform.emplace_back(std::make_unique&lt;w_dol_i_w_boki&gt;(chmura,sf::Vector2f((std::rand() % (window.getSize().x -200))+50,-120)));</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">// WROGOWIE</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    sf::Texture strzelajacy;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">if</span>(!strzelajacy.loadFromFile(<span class="stringliteral">&quot;tekstury/wrogowie/strzelajacy.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    sf::Texture nie_strzelajacy;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">if</span>(!nie_strzelajacy.loadFromFile(<span class="stringliteral">&quot;tekstury/wrogowie/nie_strzelajacy.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    std::vector&lt;std::unique_ptr&lt;Wrogowie&gt;&gt; v_wrogowie;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;10;i++){</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">if</span>(i&lt;5){</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <span class="keyword">auto</span> cos = std::make_unique&lt;Wrogowie_na_boki&gt;(strzelajacy,sf::Vector2f((std::rand() % (window.getSize().x -200))+50,(std::rand() % 200)-300));</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            v_wrogowie.emplace_back(move(cos));</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keyword">auto</span> cos = std::make_unique&lt;Wrogowie_prosto&gt;(nie_strzelajacy,sf::Vector2f(std::rand() % (window.getSize().x -200),(std::rand() % 300)-400));</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            v_wrogowie.emplace_back(move(cos));</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">//POCISKI</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    sf::Texture poci;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">if</span>(!poci.loadFromFile(<span class="stringliteral">&quot;tekstury/pocisk.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    std::vector&lt;std::unique_ptr&lt;Wrogowie&gt;&gt; pociski;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">//POJAZD KOSMICZNY</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    sf::Texture stat;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">if</span>(!stat.loadFromFile(<span class="stringliteral">&quot;tekstury/statek.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    sf::Texture czer;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">if</span>(!czer.loadFromFile(<span class="stringliteral">&quot;tekstury/czeresnia.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    std::vector&lt;std::unique_ptr&lt;sf::Sprite&gt;&gt; statek_i_czeresnia;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">//TŁO</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    sf::Texture tlo1;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">if</span>(!tlo1.loadFromFile(<span class="stringliteral">&quot;tekstury/sheett.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    sf::Sprite tlo;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    tlo.setTexture(tlo1);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    tlo.setScale(2,2);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    tlo.setPosition(0,550);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    sf::Texture tlo2;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">if</span>(!tlo2.loadFromFile(<span class="stringliteral">&quot;tekstury/tlo.jpg&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    sf::Sprite tloo;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    tloo.setTexture(tlo2);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    tloo.setTextureRect(sf::IntRect(0,6840,460,700));</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    tloo.setPosition(0,0);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="comment">//ODLICZANIE</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    sf::Texture zyciaa;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordflow">if</span>(!zyciaa.loadFromFile(<span class="stringliteral">&quot;tekstury/odliczanie/zycia.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    sf::Sprite zycia;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    zycia.setPosition(20,20);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    zycia.setScale(0.5,0.5);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    zycia.setTexture(zyciaa);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    sf::Texture zlapane;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">if</span>(!zlapane.loadFromFile(<span class="stringliteral">&quot;tekstury/odliczanie/zlapane.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    sf::Texture zestrzelone;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">if</span>(!zestrzelone.loadFromFile(<span class="stringliteral">&quot;tekstury/odliczanie/zestrzelone.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    sf::Sprite zlapane_zestrzelone;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    zlapane_zestrzelone.setPosition(300,20);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    zlapane_zestrzelone.setScale(0.5,0.5);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    sf::Texture liczb;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordflow">if</span>(!liczb.loadFromFile(<span class="stringliteral">&quot;tekstury/odliczanie/1234.png&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    sf::Sprite l1;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    l1.setPosition(20,40);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    l1.setTexture(liczb);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    l1.setTextureRect(sf::IntRect(0,0,1,1));</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    sf::Sprite l2;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    l2.setPosition(45,40);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    l2.setTexture(liczb);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    l2.setTextureRect(sf::IntRect(0,0,1,1));</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    sf::Sprite l3;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    l3.setPosition(370,40);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    l3.setTexture(liczb);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    l3.setTextureRect(sf::IntRect(0,0,1,1));</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    sf::Sprite l4;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    l4.setPosition(395,40);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    l4.setTexture(liczb);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    l4.setTextureRect(sf::IntRect(0,0,1,1));</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">//KONIEC</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    sf::Texture wygrales;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordflow">if</span>(!wygrales.loadFromFile(<span class="stringliteral">&quot;tekstury/koniec/wygrales.jpg&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    sf::Texture przegrales;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keywordflow">if</span>(!przegrales.loadFromFile(<span class="stringliteral">&quot;tekstury/koniec/przegrales.jpg&quot;</span>)) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    sf::Sprite koniec;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    koniec.setPosition(0,0);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">//MUZYKA</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    sf::SoundBuffer music;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">if</span> (!music.loadFromFile(<span class="stringliteral">&quot;muzyka/calaa1.ogg&quot;</span>)){<span class="keywordflow">return</span> 1;}</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    sf::Sound sound;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        sound.setBuffer(music);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        sound.play();</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        sound.setLoop(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment">// /// // /// // /// //</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordflow">while</span> (window.isOpen()) {</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        sf::Event event;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keywordflow">while</span> (window.pollEvent(event)) {</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            <span class="keywordflow">if</span> (event.type == sf::Event::Closed)</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                window.close();</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        sf::Time elapsed = zegar.restart();</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        guy.<a class="code" href="class_postac.html#aff7f9555cef804dade91792944703a9c">poczatek_tla</a>(elapsed,window,poczatek_tlo,pocz1,pocz2,pocz3,G1,G2,G3,G4);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        guy.<a class="code" href="class_postac.html#a6ccb7b7ca6263157e6c85335a01e5e33">texture_walk</a>(elapsed);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        guy.<a class="code" href="class_postac.html#a097c675d60378ca8f346d470b5a5fd0d">walk</a>(elapsed,window);</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        guy.<a class="code" href="class_postac.html#ab74ea35113a27c0224c3069d657531a2">disappear_food</a>(v_jedzonko,window);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        guy.<a class="code" href="class_postac.html#a5335274a34ef85a3efda76b91640531f">start_drop_food</a>(elapsed,v_jedzonko);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        guy.<a class="code" href="class_postac.html#a8c8f8cfb70a69c36c9528b48712a4f23">start_icy_tower</a>(elapsed,v_platform);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        guy.<a class="code" href="class_postac.html#af00aea496f2be9153466abf8affc7c73">start_wrogowie</a>(elapsed,v_wrogowie,statek_i_czeresnia,stat,statek_z_G1,statek_z_G2,statek_z_G3,statek_z_G4,chmura);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        guy.<a class="code" href="class_postac.html#aa2b3315b1d3e9c356e136881ef1fd561">pocisk_start</a>(elapsed,pociski,poci);</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        guy.<a class="code" href="class_postac.html#a3839f8f40056b85ff54ecb7b133373d8">znikanie_wrogow_i_pociskow</a>(v_wrogowie,window,strzelajacy,nie_strzelajacy,pociski);</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        guy.<a class="code" href="class_postac.html#ad36c49085cde06f46dbc4fcb95c1ef22">przesuwajace_tlo</a>(elapsed,tloo,tlo);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        guy.<a class="code" href="class_postac.html#a1adea3df949a53f25961f5cefc57b008">wyswieltanie_danych</a>(zlapane_zestrzelone,l1,l2,l3,l4,zlapane,zestrzelone);</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        guy.<a class="code" href="class_postac.html#abb0e5c90d168db18336bb43002bda08e">koniec_gry</a>(elapsed,window,statek_i_czeresnia,czer,koniec,wygrales,przegrales,sound);</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> &amp;it : pociski){</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            it-&gt;ruch(elapsed);</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        }</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        window.clear(sf::Color::Black);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        window.draw(tloo);</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        window.draw(tlo);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        window.draw(zycia);</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        window.draw(zlapane_zestrzelone);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        window.draw(l1);</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        window.draw(l2);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        window.draw(l3);</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        window.draw(l4);</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        window.draw(guy);</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> &amp;it : v_jedzonko){</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            window.draw(*it);</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        }</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> &amp;it : v_platform){</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;            window.draw(*it);</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        }</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> &amp;it : v_wrogowie){</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            window.draw(*it);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        }</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> &amp;it : pociski){</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            window.draw(*it);</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        }</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> &amp;it : statek_i_czeresnia){</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            window.draw(*it);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        }</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        window.draw(poczatek_tlo);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        window.draw(koniec);</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        window.display();</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    }</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclass_postac_html_a5335274a34ef85a3efda76b91640531f"><div class="ttname"><a href="class_postac.html#a5335274a34ef85a3efda76b91640531f">Postac::start_drop_food</a></div><div class="ttdeci">void start_drop_food(const sf::Time &amp;e, std::vector&lt; std::unique_ptr&lt; Food &gt;&gt; &amp;v_jedzonko)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00157">postac.cpp:157</a></div></div>
+<div class="ttc" id="aclass_postac_html_aff7f9555cef804dade91792944703a9c"><div class="ttname"><a href="class_postac.html#aff7f9555cef804dade91792944703a9c">Postac::poczatek_tla</a></div><div class="ttdeci">void poczatek_tla(const sf::Time &amp;e, sf::RenderWindow &amp;window, sf::Sprite &amp;poczatek, sf::Texture &amp;pocz1, sf::Texture &amp;pocz2, sf::Texture &amp;pocz3, sf::Texture &amp;G1, sf::Texture &amp;G2, sf::Texture &amp;G3, sf::Texture &amp;G4)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00004">postac.cpp:4</a></div></div>
+<div class="ttc" id="aclass_postac_html_ab74ea35113a27c0224c3069d657531a2"><div class="ttname"><a href="class_postac.html#ab74ea35113a27c0224c3069d657531a2">Postac::disappear_food</a></div><div class="ttdeci">void disappear_food(std::vector&lt; std::unique_ptr&lt; Food &gt;&gt; &amp;v_jedzonko, sf::RenderWindow &amp;window)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00138">postac.cpp:138</a></div></div>
+<div class="ttc" id="aclass_postac_html_a3a4da608b9dd42d7e22a6ae8403c071a"><div class="ttname"><a href="class_postac.html#a3a4da608b9dd42d7e22a6ae8403c071a">Postac::add_bits_of_texture</a></div><div class="ttdeci">void add_bits_of_texture(sf::IntRect)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00052">postac.cpp:52</a></div></div>
+<div class="ttc" id="aclass_postac_html_a8c8f8cfb70a69c36c9528b48712a4f23"><div class="ttname"><a href="class_postac.html#a8c8f8cfb70a69c36c9528b48712a4f23">Postac::start_icy_tower</a></div><div class="ttdeci">void start_icy_tower(const sf::Time &amp;e, std::vector&lt; std::unique_ptr&lt; platformy &gt;&gt; &amp;platformy)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00180">postac.cpp:180</a></div></div>
+<div class="ttc" id="aclass_postac_html_abb0e5c90d168db18336bb43002bda08e"><div class="ttname"><a href="class_postac.html#abb0e5c90d168db18336bb43002bda08e">Postac::koniec_gry</a></div><div class="ttdeci">void koniec_gry(const sf::Time &amp;e, sf::RenderWindow &amp;window, std::vector&lt; std::unique_ptr&lt; sf::Sprite &gt;&gt; &amp;czeresnia, sf::Texture &amp;tak, sf::Sprite &amp;koniec, sf::Texture &amp;wygral, sf::Texture &amp;przegral, sf::Sound &amp;sound)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00401">postac.cpp:401</a></div></div>
+<div class="ttc" id="aclass_postac_html"><div class="ttname"><a href="class_postac.html">Postac</a></div><div class="ttdef"><b>Definition:</b> <a href="postac_8h_source.html#l00012">postac.h:12</a></div></div>
+<div class="ttc" id="aclass_postac_html_af00aea496f2be9153466abf8affc7c73"><div class="ttname"><a href="class_postac.html#af00aea496f2be9153466abf8affc7c73">Postac::start_wrogowie</a></div><div class="ttdeci">void start_wrogowie(const sf::Time &amp;e, std::vector&lt; std::unique_ptr&lt; Wrogowie &gt;&gt; &amp;wrogowie, std::vector&lt; std::unique_ptr&lt; sf::Sprite &gt;&gt; &amp;statek, sf::Texture &amp;stat, sf::Texture &amp;sG1, sf::Texture &amp;sG2, sf::Texture &amp;sG3, sf::Texture &amp;sG4, sf::Texture &amp;podloga)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00228">postac.cpp:228</a></div></div>
+<div class="ttc" id="aclass_postac_html_aa2b3315b1d3e9c356e136881ef1fd561"><div class="ttname"><a href="class_postac.html#aa2b3315b1d3e9c356e136881ef1fd561">Postac::pocisk_start</a></div><div class="ttdeci">void pocisk_start(const sf::Time &amp;e, std::vector&lt; std::unique_ptr&lt; Wrogowie &gt;&gt; &amp;wektor, sf::Texture &amp;uff)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00272">postac.cpp:272</a></div></div>
+<div class="ttc" id="amain_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00004">main.cpp:4</a></div></div>
+<div class="ttc" id="aclass_postac_html_a097c675d60378ca8f346d470b5a5fd0d"><div class="ttname"><a href="class_postac.html#a097c675d60378ca8f346d470b5a5fd0d">Postac::walk</a></div><div class="ttdeci">void walk(const sf::Time &amp;e, sf::RenderWindow &amp;window)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00093">postac.cpp:93</a></div></div>
+<div class="ttc" id="aclass_postac_html_ad36c49085cde06f46dbc4fcb95c1ef22"><div class="ttname"><a href="class_postac.html#ad36c49085cde06f46dbc4fcb95c1ef22">Postac::przesuwajace_tlo</a></div><div class="ttdeci">void przesuwajace_tlo(const sf::Time &amp;e, sf::Sprite &amp;tloo, sf::Sprite &amp;tlo)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00327">postac.cpp:327</a></div></div>
+<div class="ttc" id="aclass_postac_html_a6ccb7b7ca6263157e6c85335a01e5e33"><div class="ttname"><a href="class_postac.html#a6ccb7b7ca6263157e6c85335a01e5e33">Postac::texture_walk</a></div><div class="ttdeci">void texture_walk(const sf::Time &amp;e)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00058">postac.cpp:58</a></div></div>
+<div class="ttc" id="aclass_postac_html_a3839f8f40056b85ff54ecb7b133373d8"><div class="ttname"><a href="class_postac.html#a3839f8f40056b85ff54ecb7b133373d8">Postac::znikanie_wrogow_i_pociskow</a></div><div class="ttdeci">void znikanie_wrogow_i_pociskow(std::vector&lt; std::unique_ptr&lt; Wrogowie &gt; &gt; &amp;wektor, sf::RenderWindow &amp;window, sf::Texture &amp;tak, sf::Texture &amp;nie, std::vector&lt; std::unique_ptr&lt; Wrogowie &gt;&gt; &amp;wektor2)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00289">postac.cpp:289</a></div></div>
+<div class="ttc" id="apostac_8h_html"><div class="ttname"><a href="postac_8h.html">postac.h</a></div></div>
+<div class="ttc" id="aclass_postac_html_a1adea3df949a53f25961f5cefc57b008"><div class="ttname"><a href="class_postac.html#a1adea3df949a53f25961f5cefc57b008">Postac::wyswieltanie_danych</a></div><div class="ttdeci">void wyswieltanie_danych(sf::Sprite &amp;zlap, sf::Sprite &amp;l1, sf::Sprite &amp;l2, sf::Sprite &amp;l3, sf::Sprite &amp;l4, sf::Texture &amp;zl, sf::Texture &amp;ze)</div><div class="ttdef"><b>Definition:</b> <a href="postac_8cpp_source.html#l00344">postac.cpp:344</a></div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_c5dabd5fc8661a4f396ab56ff208c51c.html">kod_gry</a></li><li class="navelem"><a class="el" href="main_8cpp.html">main.cpp</a></li>
+    <li class="footer">Wygenerowano przez
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
+  </ul>
+</div>
+</body>
+</html>

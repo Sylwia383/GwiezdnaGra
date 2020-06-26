@@ -2,11 +2,11 @@
 
 # Opis projektu:
 
-Projekt to trzy-poziomowa gra, z możliwościa wyboru postaci.
+Projekt to trzy-poziomowa gra, z możliwością wyboru postaci.
 
-Pierwszy poziom polega na łapaniu smacznego jedzenia. Po złapaniu 50 prawidłowych obiektów przechodzi się do następnej rundy. W tym poziomie trzeba uważać aby nie upuszczać dobrego jedzenia oraz także aby nie łapać rzeczy niejadalnych (patelnia, nóż) oraz używek (alhohol, papierosy). Wykonanie którejś z tych czynności skutkuje utratą kolejnego życia.
+Pierwszy poziom polega na łapaniu smacznego jedzenia. Po złapaniu 50 prawidłowych obiektów przechodzi się do następnej rundy. W tym poziomie trzeba uważać aby nie upuszczać dobrego jedzenia oraz także aby nie łapać rzeczy niejadalnych (patelnia, nóż) oraz używek (alkohol, papierosy). Wykonanie którejś z tych czynności skutkuje utratą kolejnego życia.
 
-Drugi poziom polega na wskakiwaniu na chmurki. Chmurki poruszają się w dół, a niektóre także na boki. Po skoczeniu na 50-ciu chmurkach zaczyna się następny poziom. W tym elatpie gry można przegrać poprzez spadnięcie poza ekran.
+Drugi poziom polega na wskakiwaniu na chmurki. Chmurki poruszają się w dół, a niektóre także na boki. Po skoczeniu na 50-ciu chmurkach zaczyna się następny poziom. W tym etapie gry można przegrać poprzez spadnięcie poza ekran.
 
 Aby przejść do kolejnego etapu trzeba wsiąść do statku kosmicznego.
 Trzeci poziom to ratowanie ziemi przez wrogami z kosmosu. Trzeba strzelać do UFO. Po zestrzelaniu 50-ciu trzeba złapać czereśnię aby zakończyć grę. Przy przepuszczeniu jakiegoś wroga lub kolizji z nim traci się życia.

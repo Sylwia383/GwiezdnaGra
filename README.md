@@ -26,25 +26,25 @@ W trzecim poziomi:
  
 
 # Biblioteki:
- -openal32.dll
- -sfml-audio-2.dll
- -sfml-audio-d-2.dll
- -sfml-graphics-2.dll
- -sfml-graphics-d-2.dll
- -sfml-network-2.dll
- -sfml-network-d-2.dll
- -sfml-system-2.dll
- -sfml-system-d-2.dll
- -sfml-window-2.dll
- -sfml-window-d-2.dll
+ - openal32.dll
+ - sfml-audio-2.dll
+ - sfml-audio-d-2.dll
+ - sfml-graphics-2.dll
+ - sfml-graphics-d-2.dll
+ - sfml-network-2.dll
+ - sfml-network-d-2.dll
+ - sfml-system-2.dll
+ - sfml-system-d-2.dll
+ - sfml-window-2.dll
+ - sfml-window-d-2.dll
  
  
 # Materiały zewnętrzne:
 
 Tekstury:
- -https://kenney.nl/assets/toon-characters-1
- -https://kenney.nl/assets/food-kit
- -https://kenney.nl/assets/platformer-art-candy
+ - https://kenney.nl/assets/toon-characters-1
+ - https://kenney.nl/assets/food-kit
+ - https://kenney.nl/assets/platformer-art-candy
  
  
 # Dokumentacja:

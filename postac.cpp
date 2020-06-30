@@ -305,7 +305,9 @@ void Postac::znikanie_wrogow_i_pociskow(std::vector<std::unique_ptr<Wrogowie> > 
                 wektor.emplace_back(std::make_unique<Wrogowie_prosto>(nie,sf::Vector2f(std::rand()%335,-110)));
             }
             wektor.erase(wektor.begin()+i);
-            zycia_--;
+            if(wektor_bounds.top>700){
+                zycia_--;
+            }
         }
         //jeżeli trafią pociski
         for(int j=0; j<wektor2.size(); j++){

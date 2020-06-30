@@ -96,14 +96,14 @@ int main() {
     sf::Texture strzelajacy;
     if(!strzelajacy.loadFromFile("tekstury/wrogowie/strzelajacy.png")) { return 1; }
     sf::Texture nie_strzelajacy;
-    if(!nie_strzelajacy.loadFromFile("tekstury/wrogowie/nie_strzelajacy.png")) { return 1; }
+    if(!nie_strzelajacy.loadFromFile("tekstury/wrogowie/nie_strzelajacy.png")) { return 1; }//sf::Vector2f(std::rand()%335,-110)
     std::vector<std::unique_ptr<Wrogowie>> v_wrogowie;
     for(int i=0;i<10;i++){
         if(i<5){
-            auto cos = std::make_unique<Wrogowie_na_boki>(strzelajacy,sf::Vector2f((std::rand() % (window.getSize().x -200))+50,(std::rand() % 200)-300));
+            auto cos = std::make_unique<Wrogowie_na_boki>(strzelajacy,sf::Vector2f(std::rand()%335,(std::rand() % 200)-300));
             v_wrogowie.emplace_back(move(cos));
         }else{
-            auto cos = std::make_unique<Wrogowie_prosto>(nie_strzelajacy,sf::Vector2f(std::rand() % (window.getSize().x -200),(std::rand() % 300)-400));
+            auto cos = std::make_unique<Wrogowie_prosto>(nie_strzelajacy,sf::Vector2f(std::rand()%335,(std::rand() % 300)-400));
             v_wrogowie.emplace_back(move(cos));
         }
     }

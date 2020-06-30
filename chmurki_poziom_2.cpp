@@ -24,9 +24,9 @@ void w_dol::ruch(const sf::Time &e, int ile_kolizji){
 void w_dol_i_w_boki::ruch(const sf::Time &e, int ile_kolizji){
     auto bounds = getGlobalBounds();
     if(strona==0){
-        v_x_=50;
+        v_x_=100;
     }else{
-        v_x_=-50;
+        v_x_=-100;
     }if(bounds.left <= 0) { //lewo
         strona=0;
     }if(bounds.left + bounds.width >= 460) { //prawo

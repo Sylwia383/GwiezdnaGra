@@ -4,3 +4,4 @@
 .cpp linguist-language=C++
 /Dokumentacja/html/* linguist-vendored
 /Dokumentacja/latex/* linguist-vendored
+/Dokumentacja/html/search/* linguist-vendored

@@ -2,4 +2,5 @@
 * text=auto
 .h linguist-language=C++
 .cpp linguist-language=C++
-/Dokumentacja/* linguist-vendored
+/Dokumentacja/html/* linguist-vendored
+/Dokumentacja/latex/* linguist-vendored
